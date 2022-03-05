@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
  
 
-# Make data base, printed on Fri Mar  4 20:51:27 2022
+# Make data base, printed on Sat Mar  5 14:10:09 2022
 
 # Variables
 
@@ -19,11 +19,7 @@ make: *** No rule to make target `all'.  Stop.
 # automatic
 ?F = $(notdir $?)
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
 VSCODE_LOG_NATIVE = false
-# environment
-NVM_INC = /Users/francesco/.nvm/versions/node/v14.19.0/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -34,8 +30,9 @@ NVM_INC = /Users/francesco/.nvm/versions/node/v14.19.0/include/node
 CURDIR := /Users/francesco/vulkan/computer-graphics/A01
 # makefile
 SHELL = /bin/sh
+ 
 # environment
-VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"c5b0daf6edd8c9180e54352df3efb272.it","_translationsConfigFile":"/Users/francesco/Library/Application Support/Code/clp/c5b0daf6edd8c9180e54352df3efb272.it/tcf.json","_cacheRoot":"/Users/francesco/Library/Application Support/Code/clp/c5b0daf6edd8c9180e54352df3efb272.it","_resolvedLanguagePackCoreLocation":"/Users/francesco/Library/Application Support/Code/clp/c5b0daf6edd8c9180e54352df3efb272.it/b5205cc8eb4fbaa726835538cd82372cc0222d43","_corruptedFile":"/Users/francesco/Library/Application Support/Code/clp/c5b0daf6edd8c9180e54352df3efb272.it/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"5beb2672da37bc7282d598f07256295e.it","_translationsConfigFile":"/Users/francesco/Library/Application Support/Code/clp/5beb2672da37bc7282d598f07256295e.it/tcf.json","_cacheRoot":"/Users/francesco/Library/Application Support/Code/clp/5beb2672da37bc7282d598f07256295e.it","_resolvedLanguagePackCoreLocation":"/Users/francesco/Library/Application Support/Code/clp/5beb2672da37bc7282d598f07256295e.it/b5205cc8eb4fbaa726835538cd82372cc0222d43","_corruptedFile":"/Users/francesco/Library/Application Support/Code/clp/5beb2672da37bc7282d598f07256295e.it/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 2)
@@ -47,21 +44,13 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-65d8e522-6266-4c37-984e-aa4f88ecf70c.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-7e0046fe-784b-49e0-ac3c-68ae0bcc7de2.sock
 # environment
-VSCODE_CWD = /Users/francesco/vulkan/computer-graphics/A01
+VSCODE_CWD = /
 # environment
-PATH = /Users/francesco/.nvm/versions/node/v14.19.0/bin:/opt/homebrew/opt/node@16/bin:/Users/francesco/bin:/Users/francesco/Library/Python/3.9/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS
+PATH = /usr/bin:/bin:/usr/sbin:/sbin
 # environment
-LSCOLORS = Gxfxcxdxbxegedabagacad
-# environment
-LIBRARY_PATH = /opt/homebrew/lib
-# environment
-CPATH = /opt/homebrew/include
-# environment
-SPACESHIP_VERSION = 3.16.1
-# environment
-NVM_BIN = /Users/francesco/.nvm/versions/node/v14.19.0/bin
+LaunchInstanceID = A2FA976B-BA83-4879-8A0C-27D2278F0D5B
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -71,9 +60,7 @@ LDFLAGS = -lglfw -lvulkan -ldl -lpthread
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-CDPATH = .:~/Library/Application Support/abnerworks.Typora/:
-# environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.JW7QfoVUiv/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.28sZYLnSUG/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -89,51 +76,35 @@ HOME = /Users/francesco
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CLI = 1
-# environment
 VSCODE_CODE_CACHE_PATH = /Users/francesco/Library/Application Support/Code/CachedData/b5205cc8eb4fbaa726835538cd82372cc0222d43
 # environment
 LOGNAME = francesco
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
-NVM_CD_FLAGS = -q
-# environment
-ZSH = /Users/francesco/.oh-my-zsh
-# environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
 XPC_FLAGS = 0x0
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
 # environment
-LC_TERMINAL = iTerm2
-# environment
-SHLVL = 3
+SHLVL = 1
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = francesco
 # makefile
 .DEFAULT_GOAL := A01
-# default
-MAKECMDGOALS := all
-# environment
-TERM_SESSION_ID = w0t0p0:A5D00523-0D5D-47E9-A682-2EA21D8783A2
-# environment
-LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 # makefile (from `Makefile', line 3)
 INC = -I./headers
-# environment
-TERM_PROGRAM = iTerm.app
 # default
 .VARIABLES := 
 # environment
@@ -149,24 +120,11 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-TERM_PROGRAM_VERSION = 3.5.0beta4
-# environment
-NVM_DIR = /Users/francesco/.nvm
-# environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.17633251.17633257.B4D80A6C-97E8-4239-B5B5-2E89F2E33ECD
-# environment
-LC_TERMINAL_VERSION = 3.5.0beta4
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.17633251.17633257
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
-# environment
-TERMINFO_DIRS = /Applications/iTerm.app/Contents/Resources/terminfo:/usr/share/terminfo
-# environment
- 
-ITERM_SESSION_ID = w0t0p0:A5D00523-0D5D-47E9-A682-2EA21D8783A2
-# environment
-COLORFGBG = 15;0
 # environment
 __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x4
 # environment
@@ -176,13 +134,9 @@ MAKEFILES :=
 # automatic
 <F = $(notdir $<)
 # environment
-ITERM_PROFILE = Default
-# environment
-PAGER = less
-# environment
 LC_ALL = C
 # environment
-SPACESHIP_ROOT = /Users/francesco/.oh-my-zsh/custom/themes/spaceship-prompt
+SECURITYSESSIONID = 186b3
 # automatic
 ^F = $(notdir $^)
 # default
@@ -196,11 +150,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
-VSCODE_PID = 76205
+VSCODE_PID = 668
 # variable set hash-table stats:
-# Load=92/1024=9%, Rehash=0, Collisions=4/122=3%
+# Load=68/1024=7%, Rehash=0, Collisions=1/98=1%
 
 # Pattern-specific Variable Values
 
@@ -208,9 +160,9 @@ VSCODE_PID = 76205
 
 # Directories
 
-# . (device 16777230, inode 20298301): 14 files, no impossibilities.
+# . (device 16777231, inode 20298301): 13 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 13 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -220,6 +172,7 @@ VSCODE_PID = 76205
 
 # Not a target:
 all:
+ 
 #  Command-line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -249,7 +202,7 @@ A01: main.cpp
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-04 20:51:22
+#  Last modified 2022-03-04 20:53:46
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -280,7 +233,6 @@ clean:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
- 
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 15):
 	rm -f $(PROJ_NAME)
@@ -299,6 +251,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Mar  4 20:51:27 2022
+# Finished Make data base on Sat Mar  5 14:10:09 2022
 
  

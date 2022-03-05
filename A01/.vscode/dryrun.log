@@ -1,6 +1,5 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/francesco/vulkan/computer-graphics/A01'
-make: `A01' is up to date.
- 
+g++ -std=c++17 -O2 -I./headers -o A01 main.cpp -lglfw -lvulkan -ldl -lpthread
 make: Leaving directory `/Users/francesco/vulkan/computer-graphics/A01'
  
