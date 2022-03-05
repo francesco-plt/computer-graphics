@@ -6,6 +6,7 @@
 
    (-1, 1)      (1, 1)
 */
+
 auto Rectangle = [&](float x, float y, float width, float height, int r, int g, int b) {
     float xa = x;
     float xb = x + width;
@@ -25,3 +26,14 @@ Rectangle(0.2, 0.4,  0.1, 0.1,  1, 1, 0);  // house window #1
 Rectangle(0.4, 0.4,  0.1, 0.1,  1, 1, 0);  // house window #1
 
 Rectangle(0.3, 0.8,  0.1, 0.2,  1, 1, 0);  // house door
+
+// sun
+for(int i = 0; i < 32; i++) {
+	Triangle( 0.00 + 0.05 * cos(6.28/32*(i-0.5)), -0.80 + 0.05 * sin(6.28/32*(i-0.5)),
+			  0.00 + 0.10 * cos(6.28/32*i), -0.80 + 0.10 * sin(6.28/32*i),
+			  0.00 + 0.05 * cos(6.28/32*(i+0.5)), -0.80 + 0.05 * sin(6.28/32*(i+0.5)),
+			  1,1,0);
+}
+
+// grass
+Rectangle(-1, 1,  2, 0.2,  0, 1, 0);
