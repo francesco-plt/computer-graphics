@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
  
 
-# Make data base, printed on Sat Mar  5 16:28:28 2022
+# Make data base, printed on Mon Mar  7 21:58:19 2022
 
 # Variables
 
@@ -26,7 +26,6 @@ VSCODE_LOG_NATIVE = false
 NVM_INC = /Users/francesco/.nvm/versions/node/v14.19.0/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
- 
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
@@ -48,9 +47,9 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-9db508d2-82e6-4c41-ac8d-11fd94c1f4bc.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-a94c2e4a-7994-4f75-89ae-f23f904cd15c.sock
 # environment
-VSCODE_CWD = /Users/francesco/vulkan/computer-graphics/A02
+VSCODE_CWD = /Users/francesco/vulkan/computer-graphics/A03
 # environment
 PATH = /Users/francesco/.nvm/versions/node/v14.19.0/bin:/opt/homebrew/opt/node@16/bin:/Users/francesco/bin:/Users/francesco/Library/Python/3.9/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS
 # environment
@@ -126,7 +125,7 @@ USER = francesco
 # default
 MAKECMDGOALS := all
 # environment
-TERM_SESSION_ID = w0t0p0:A9A32F37-B109-4066-8DF3-DEBDD27EB702
+TERM_SESSION_ID = w0t0p0:556E58F1-2578-41AA-843E-9D88F4F78E97
 # environment
 LESS = -R
 # automatic
@@ -156,7 +155,7 @@ TERM_PROGRAM_VERSION = 3.5.0beta4
 # environment
 NVM_DIR = /Users/francesco/.nvm
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.17633251.17633257.CA0C7592-B509-4F88-AF18-AAC6E5CC3BD0
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.17633251.17633257.C80C02F5-FDF5-4068-8827-431F5786E585
 # environment
 LC_TERMINAL_VERSION = 3.5.0beta4
 # automatic
@@ -166,7 +165,7 @@ LC_TERMINAL_VERSION = 3.5.0beta4
 # environment
 TERMINFO_DIRS = /Applications/iTerm.app/Contents/Resources/terminfo:/usr/share/terminfo
 # environment
-ITERM_SESSION_ID = w0t0p0:A9A32F37-B109-4066-8DF3-DEBDD27EB702
+ITERM_SESSION_ID = w0t0p0:556E58F1-2578-41AA-843E-9D88F4F78E97
 # environment
 COLORFGBG = 15;0
 # environment
@@ -202,7 +201,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 668
+VSCODE_PID = 95877
 # variable set hash-table stats:
 # Load=94/1024=9%, Rehash=0, Collisions=4/124=3%
 
@@ -302,6 +301,7 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Mar  5 16:28:28 2022
+ 
+# Finished Make data base on Mon Mar  7 21:58:19 2022
 
  
