@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "cstring": "cpp",
-        "stdexcept": "cpp",
-        "iostream": "cpp",
-        "tuple": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "Disabled"
-}
