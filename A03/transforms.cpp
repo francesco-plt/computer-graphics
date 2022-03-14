@@ -12,7 +12,6 @@ glm::mat4 MT2_S1 = glm::scale(glm::mat4(1), glm::vec3(0.5f, 0.5f, 0.5f));
 glm::mat4 MT2 = MT2_T * MT2_S1 * glm::inverse(MT2_T);
 
 // Mirror the starship along a plane passing through (1,1,1), and obtained rotating 15 degree around the x axis the xz plane
-// that shit makes no sense, waiting until further instructions
 glm::mat4 MT3_T = glm::translate(glm::mat4(1), glm::vec3(1.0f, 1.0f, 1.0f));
 glm::mat4 MT3_Rx = glm::rotate(glm::mat4(1), glm::radians(15.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 glm::mat4 MT3_S1 = glm::scale(glm::mat4(1), glm::vec3(1.0f, -1.0f, 1.0f));
