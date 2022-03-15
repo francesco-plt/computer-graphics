@@ -44,10 +44,9 @@ glm::mat4 PO3(float a)
 glm::mat4 PO4(float a)
 {
 	glm::mat4 shear = glm::mat4(
-		1, 0, -0.5 * cos(glm::radians(45.0f)), 0,
-		0, 1, -0.5 * sin(glm::radians(45.0f)), 0,
-		0, 0, 1, 0,
+		1, 0, 0, 0,
+		0, 1, 0, 0,
+		-0.5 * cos(45.0f), -0.5 * sin(45.0f), 1, 0,
 		0, 0, 0, 1);
-
 	return orth(a) * shear;
 }
