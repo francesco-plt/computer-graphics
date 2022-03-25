@@ -13,3 +13,6 @@ test: $(PROJ_NAME)
 
 clean:
 	rm -f $(PROJ_NAME)
+
+build:
+	g++ $(CFLAGS) $(INC) -o $(PROJ_NAME) main.cpp $(LDFLAGS)	
