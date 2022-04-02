@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/francesco/computer-graphics/assignments'
+make: Leaving directory `/Users/francesco/computer-graphics/assignments'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
