@@ -26,76 +26,70 @@ glm::mat4 getRobotWorldMatrix(GLFWwindow *window)
 												// initialized randomly
 	static glm::mat4 out;						// robot world matrix I think
 
-	glm::vec3 CamDir[4]{
-		glm::vec3(-1, 0, 0), // east
-		glm::vec3(1, 0, 0),	 // west
-		glm::vec3(0, 0, -1), // north
-		glm::vec3(0, 0, 1)	 // south
-	};
-
-	// in order: east, north, west and south
-	float yawAngles[5] = {0.0f, 90.0f, 180.0f, 270.0f, 360.f};
-	float yawDiagAngles[4] = {45.0f, 135.0f, 225.0f, 315.0f};
+	std::unordered_map<std::string, glm::vec3> CamDir;
+	CamDir["east"] = glm::vec3(1, 0, 0);
+	CamDir["west"] = glm::vec3(-1, 0, 0);
+	CamDir["north"] = glm::vec3(0, 0, -1);
+	CamDir["south"] = glm::vec3(0, 0, 1);
 
 	std::unordered_map<std::string, float> yawAngles;
-	yawAngles["0"] = 0.0f;
-	yawAngles["45"] = 45.0f;
-	yawAngles["90"] = 90.0f;
-	yawAngles["135"] = 135.0f;
-	yawAngles["180"] = 180.0f;
-	yawAngles["225"] = 225.0f;
-	yawAngles["270"] = 270.0f;
-	yawAngles["315"] = 315.0f;
-	yawAngles["360"] = 360.0f;
+	yawAngles["east"] = 0.0f;
+	yawAngles["nort-east"] = 45.0f;
+	yawAngles["north"] = 90.0f;
+	yawAngles["north-west"] = 135.0f;
+	yawAngles["west"] = 180.0f;
+	yawAngles["south-west"] = 225.0f;
+	yawAngles["south"] = 270.0f;
+	yawAngles["south-east"] = 315.0f;
 
 	// common WASD input control
 	// west
 	if (glfwGetKey(window, GLFW_KEY_A))
 	{
-		pos += XSPEED * CamDir[0] * deltaT;
-		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["180"], 0.0f));
+		pos += XSPEED * CamDir["west"] * deltaT;
+		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["west"], 0.0f));
 	}
 	// east
 	if (glfwGetKey(window, GLFW_KEY_D))
 	{
-		pos += XSPEED * CamDir[1] * deltaT;
-		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["0"], 0.0f));
+		pos += XSPEED * CamDir["east"] * deltaT;
+		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["east"], 0.0f));
 	}
 	// north
 	if (glfwGetKey(window, GLFW_KEY_W))
 	{
-		pos += YSPEED * CamDir[2] * deltaT;
-		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["90"], 0.0f));
+		pos += YSPEED * CamDir["north"] * deltaT;
+		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["north"], 0.0f));
 	}
 	// south
 	if (glfwGetKey(window, GLFW_KEY_S))
 	{
-		pos += YSPEED * CamDir[3] * deltaT;
-		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["270"], 0.0f));
+		pos += YSPEED * CamDir["south"] * deltaT;
+		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["south"], 0.0f));
 	}
 	// north-west
 	if (glfwGetKey(window, GLFW_KEY_A) && glfwGetKey(window, GLFW_KEY_W))
 	{
-		pos += DIAGSPEED * CamDir[0] * CamDir[2] * deltaT;
-		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["135"], 0.0f));
+		pos += DIAGSPEED * CamDir["north"] * CamDir["wests"] * deltaT;
+		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["north-west"], 0.0f));
 	}
 	// north-east
 	if (glfwGetKey(window, GLFW_KEY_W) && glfwGetKey(window, GLFW_KEY_D))
 	{
-		pos += DIAGSPEED * CamDir[2] * CamDir[1] * deltaT;
-		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["45"], 0.0f));
+		pos += DIAGSPEED * CamDir["north"] * CamDir["east"] * deltaT;
+		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["nort-east"], 0.0f));
 	}
 	// south-east
 	if (glfwGetKey(window, GLFW_KEY_D) && glfwGetKey(window, GLFW_KEY_S))
 	{
-		pos += DIAGSPEED * CamDir[1] * CamDir[3] * deltaT;
-		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["315"], 0.0f));
+		pos += DIAGSPEED * CamDir["south"] * CamDir["east"] * deltaT;
+		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["south-east"], 0.0f));
 	}
 	// south-west
 	if (glfwGetKey(window, GLFW_KEY_A) && glfwGetKey(window, GLFW_KEY_S))
 	{
-		pos += DIAGSPEED * CamDir[0] * CamDir[3] * deltaT;
-		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["225"], 0.0f));
+		pos += DIAGSPEED * CamDir["south"] * CamDir["west"] * deltaT;
+		out = eulerWM(pos, glm::vec3(0.0f, yawAngles["south-west"], 0.0f));
 	}
 
 	return out;
