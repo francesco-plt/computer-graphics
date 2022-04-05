@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/francesco/computer-graphics/assignments/A09'
+make: Leaving directory `/Users/francesco/computer-graphics/assignments/A09'
+ 
+make: *** No rule to make target `main.cpp', needed by `A09'.
+
