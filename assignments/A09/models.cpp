@@ -1,20 +1,21 @@
+// global structure used to ease vertices handling
+struct Vertex
+{
+    float x;
+    float y;
+    float z;
+};
+
 // this function creates the geometries to be shown, and output thems
 // in global variables M1_vertices and M1_indices to M4_vertices and M4_indices
 void makeModels()
 {
-
-    struct Vertex
-    {
-        float x;
-        float y;
-        float z;
-    };
-
     //// M1 : Cube
-    // Replace the code below, that creates a simple square, with the one to create a cube.
 
     // Resizes the vertices array. Repalce the values with the correct number of
     // vertices components (3 * number of vertices)
+    // each vertex is a triplet containing x, y and z coordinates of points in space
+    // which make up the vertices of polygon models
     Vertex cubeVertices[8] = {
         {0, 0, 0},
         {0, 0, 1},
@@ -36,7 +37,6 @@ void makeModels()
 
     // Resizes the indices array. Repalce the values with the correct number of
     // indices (3 * number of triangles)
-
     M1_indices.resize(36);
     M1_indices = {0, 1, 2, 2, 3, 0, // Index Array:
                   0, 3, 4, 4, 3, 7, // 36 indices
@@ -54,15 +54,17 @@ void makeModels()
     int NSlices = 72;
     float radius = 1;
     float height = 1;
+    // coordinates of the center of the circle
+    // which compose the bottom face of the cylinder
     float cx = 0, cy = 0, cz = -3;
 
-    M2_vertices.resize((NSlices + 1) * 3);
+    // defining bottom face
+    M2_vertices.resize((NSlices + 1) * 6);
 
     // Vertices definitions
     M2_vertices[0] = cx;
     M2_vertices[1] = cy + height;
     M2_vertices[2] = cz;
-
     for (int i = 0; i < NSlices; i++)
     {
         M2_vertices[(i + 1) * 3 + 0] = cx + radius * cos((float)(i * 2.0 * M_PI / NSlices)); // x of the vertex
@@ -70,16 +72,34 @@ void makeModels()
         M2_vertices[(i + 1) * 3 + 2] = cz + radius * sin((float)(i * 2.0 * M_PI / NSlices)); // z of the vertex
     }
 
+    M2_vertices[NSlices * 3 + 3] = cx;
+    M2_vertices[NSlices * 3 + 4] = cy;
+    M2_vertices[NSlices * 3 + 5] = cz;
+
+    for (int i = 0; i < NSlices; i++)
+    {
+        M2_vertices[(i + NSlices + 1) * 3 + 0] = cx + radius * cos((float)(i * 2.0 * M_PI / NSlices)); // x of the vertex
+        M2_vertices[(i + NSlices + 1) * 3 + 1] = cy;                                                   // y of the vertex
+        M2_vertices[(i + NSlices + 1) * 3 + 2] = cz + radius * sin((float)(i * 2.0 * M_PI / NSlices)); // z of the vertex
+    }
+
     // Resizes the indices array. Repalce the values with the correct number of
     // indices (3 * number of triangles)
-    M2_indices.resize(3 * NSlices);
+    M2_indices.resize(6 * NSlices);
 
     // indices definitions
     for (int i = 0; i < NSlices; i++)
     {
-        M2_indices[i * 3 + 0] = 0;
+        M2_indices[i * 3] = 0;
         M2_indices[i * 3 + 1] = i + 1;
         M2_indices[i * 3 + 2] = (i + 1) % NSlices + 1;
+    }
+
+    for (int i = 0; i < NSlices; i++)
+    {
+        M2_indices[(i + NSlices) * 3] = NSlices + 1;
+        M2_indices[(i + NSlices) * 3 + 1] = NSlices + i + 1;
+        M2_indices[(i + NSlices) * 3 + 2] = NSlices + (i + 1) % NSlices + 1;
     }
 
     //// M3 : Sphere
