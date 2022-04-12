@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+
 // global structure used to ease vertices handling
 struct Vertex
 {
@@ -16,7 +19,7 @@ void makeModels()
     // vertices components (3 * number of vertices)
     // each vertex is a triplet containing x, y and z coordinates of points in space
     // which make up the vertices of polygon models
-    Vertex cubeVertices[8] = {
+    std::vector<Vertex> cubeVertices = {
         {0, 0, 0},
         {0, 0, 1},
         {0, 1, 1},
@@ -46,12 +49,10 @@ void makeModels()
                   4, 5, 0, 1, 0, 5};
 
     //// M2 : Cylinder
-    // Replace the code below, that creates a simple rotated square, with the one to create a cylinder.
-
-    // Resizes the vertices array. Repalce the values with the correct number of
+    // Resizes the vertices array. Replace the values with the correct number of
     // vertices components (3 * number of vertices)
 
-    int NSlices = 72;
+    int nSlices = 36;
     float radius = 1;
     float height = 1;
     // coordinates of the center of the circle
@@ -59,47 +60,58 @@ void makeModels()
     float cx = 0, cy = 0, cz = -3;
 
     // defining bottom face
-    M2_vertices.resize((NSlices + 1) * 6);
+    M2_vertices.resize((nSlices + 1) * 6);
 
     // Vertices definitions
     M2_vertices[0] = cx;
     M2_vertices[1] = cy + height;
     M2_vertices[2] = cz;
-    for (int i = 0; i < NSlices; i++)
+    for (int i = 0; i < nSlices; i++)
     {
-        M2_vertices[(i + 1) * 3 + 0] = cx + radius * cos((float)(i * 2.0 * M_PI / NSlices)); // x of the vertex
+        M2_vertices[(i + 1) * 3 + 0] = cx + radius * cos((float)(i * 2.0 * M_PI / nSlices)); // x of the vertex
         M2_vertices[(i + 1) * 3 + 1] = cy + height;                                          // y of the vertex
-        M2_vertices[(i + 1) * 3 + 2] = cz + radius * sin((float)(i * 2.0 * M_PI / NSlices)); // z of the vertex
+        M2_vertices[(i + 1) * 3 + 2] = cz + radius * sin((float)(i * 2.0 * M_PI / nSlices)); // z of the vertex
     }
 
-    M2_vertices[NSlices * 3 + 3] = cx;
-    M2_vertices[NSlices * 3 + 4] = cy;
-    M2_vertices[NSlices * 3 + 5] = cz;
+    M2_vertices[nSlices * 3 + 3] = cx;
+    M2_vertices[nSlices * 3 + 4] = cy;
+    M2_vertices[nSlices * 3 + 5] = cz;
 
-    for (int i = 0; i < NSlices; i++)
+    for (int i = 0; i < nSlices; i++)
     {
-        M2_vertices[(i + NSlices + 1) * 3 + 0] = cx + radius * cos((float)(i * 2.0 * M_PI / NSlices)); // x of the vertex
-        M2_vertices[(i + NSlices + 1) * 3 + 1] = cy;                                                   // y of the vertex
-        M2_vertices[(i + NSlices + 1) * 3 + 2] = cz + radius * sin((float)(i * 2.0 * M_PI / NSlices)); // z of the vertex
+        M2_vertices[(i + nSlices + 2) * 3 + 0] = cx + radius * cos((float)(i * 2.0 * M_PI / nSlices)); // x of the vertex
+        M2_vertices[(i + nSlices + 2) * 3 + 1] = cy;                                                   // y of the vertex
+        M2_vertices[(i + nSlices + 2) * 3 + 2] = cz + radius * sin((float)(i * 2.0 * M_PI / nSlices)); // z of the vertex
     }
 
     // Resizes the indices array. Repalce the values with the correct number of
     // indices (3 * number of triangles)
-    M2_indices.resize(6 * NSlices);
+    M2_indices.resize(20 * nSlices);
 
     // indices definitions
-    for (int i = 0; i < NSlices; i++)
+    for (int i = 0; i < nSlices; i++)
     {
         M2_indices[i * 3] = 0;
         M2_indices[i * 3 + 1] = i + 1;
-        M2_indices[i * 3 + 2] = (i + 1) % NSlices + 1;
+        M2_indices[i * 3 + 2] = (i + 1) % nSlices + 1;
     }
 
-    for (int i = 0; i < NSlices; i++)
+    for (int i = 0; i < nSlices; i++)
     {
-        M2_indices[(i + NSlices) * 3] = NSlices + 1;
-        M2_indices[(i + NSlices) * 3 + 1] = NSlices + i + 1;
-        M2_indices[(i + NSlices) * 3 + 2] = NSlices + (i + 1) % NSlices + 1;
+        M2_indices[(i + nSlices) * 3] = nSlices + 1;
+        M2_indices[(i + nSlices) * 3 + 1] = nSlices + i + 2;
+        M2_indices[(i + nSlices) * 3 + 2] = nSlices + (i + 1) % nSlices + 2;
+    }
+
+    // cylinder
+    for (int i = 0; i < nSlices * 2; i++)
+    {
+        M2_indices[2 * 3 * (nSlices + i) + 0] = i + 1;
+        M2_indices[2 * 3 * (nSlices + i) + 1] = (i + 1) % nSlices + 1;
+        M2_indices[2 * 3 * (nSlices + i) + 2] = nSlices + (i + 1) % nSlices + 1;
+        M2_indices[2 * 3 * (nSlices + i) + 3] = nSlices + (i + 1) % nSlices + 1;
+        M2_indices[2 * 3 * (nSlices + i) + 4] = nSlices + (i + 1) % nSlices + 2;
+        M2_indices[2 * 3 * (nSlices + i) + 5] = (i + 1) % nSlices + 1;
     }
 
     //// M3 : Sphere

@@ -17,10 +17,3 @@ build:
 
 clean:
 	rm -f $(PROJ_NAME)	
-
-shdrs:
-	VERT = $(shell find shaders -type f -iname '*.vert' | sed 's/.vert//g')
-	FRAG = $(shell find shaders -type f -iname '*.frag' | sed 's/.frag//g')
-
-	glslc -o $(VERT) -c $(VERT).vert
-	glslc -o $(FRAG) -c $(FRAG).frag

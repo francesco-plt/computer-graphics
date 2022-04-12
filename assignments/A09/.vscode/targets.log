@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Mon Apr 11 17:21:29 2022
+# Make data base, printed on Tue Apr 12 18:51:55 2022
 
 # Variables
 
@@ -19,10 +19,7 @@ make: *** No rule to make target `all'.  Stop.
 # automatic
 ?F = $(notdir $?)
 # environment
-NODE_TLS_REJECT_UNAUTHORIZED = 0
-# environment
 VSCODE_LOG_NATIVE = false
- 
 # environment
 NVM_INC = /Users/francesco/.nvm/versions/node/v14.19.0/include/node
 # automatic
@@ -38,23 +35,23 @@ CURDIR := /Users/francesco/computer-graphics/assignments/A09
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"d1d25c7f7d2034a833b54c6d4a618d2c.it","_translationsConfigFile":"/Users/francesco/Library/Application Support/Code/clp/d1d25c7f7d2034a833b54c6d4a618d2c.it/tcf.json","_cacheRoot":"/Users/francesco/Library/Application Support/Code/clp/d1d25c7f7d2034a833b54c6d4a618d2c.it","_resolvedLanguagePackCoreLocation":"/Users/francesco/Library/Application Support/Code/clp/d1d25c7f7d2034a833b54c6d4a618d2c.it/e18005f0f1b33c29e81d732535d8c0e47cafb0b5","_corruptedFile":"/Users/francesco/Library/Application Support/Code/clp/d1d25c7f7d2034a833b54c6d4a618d2c.it/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"fadf5a8d5cc03ff2eb657b650d49c344.it","_translationsConfigFile":"/Users/francesco/Library/Application Support/Code/clp/fadf5a8d5cc03ff2eb657b650d49c344.it/tcf.json","_cacheRoot":"/Users/francesco/Library/Application Support/Code/clp/fadf5a8d5cc03ff2eb657b650d49c344.it","_resolvedLanguagePackCoreLocation":"/Users/francesco/Library/Application Support/Code/clp/fadf5a8d5cc03ff2eb657b650d49c344.it/8dfae7a5cd50421d10cd99cb873990460525a898","_corruptedFile":"/Users/francesco/Library/Application Support/Code/clp/fadf5a8d5cc03ff2eb657b650d49c344.it/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 2)
 CFLAGS = -std=c++17 -O2
 # environment
-STARSHIP_SESSION_KEY = 3193488703018119
+STARSHIP_SESSION_KEY = 2664525081130081
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-6e717cbd-ceb8-43c4-ba86-30583729eaf7.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-2e389f9d-5c54-46f8-a06c-a73eba61d2d9.sock
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /Users/francesco/Azule:/Users/francesco/.nvm/versions/node/v14.19.0/bin:/opt/homebrew/opt/node@16/bin:/Users/francesco/bin:/Users/francesco/Library/Python/3.9/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/francesco/.local/bin:/Users/francesco/.spicetify:/Users/francesco/.local/bin
+PATH = /Applications/Hyper.app/Contents/Resources/bin:/Users/francesco/Azule:/Users/francesco/.nvm/versions/node/v14.19.0/bin:/opt/homebrew/opt/node@16/bin:/Users/francesco/bin:/Users/francesco/Library/Python/3.9/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/francesco/.local/bin:/Users/francesco/.spicetify:/Users/francesco/.local/bin:/Applications/ARM/bin
 # environment
 AZULE = /Users/francesco/Azule
 # environment
@@ -72,6 +69,8 @@ PKG_CONFIG_PAGH = {PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig
 # environment
 NVM_BIN = /Users/francesco/.nvm/versions/node/v14.19.0/bin
 # environment
+LaunchInstanceID = 41E7A95D-F0C6-4F72-8373-F1A016EC160A
+# environment
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
@@ -84,7 +83,7 @@ CDPATH = .:~/Library/Application Support/abnerworks.Typora/:
 # environment
 HOMEBREW_GITHUB_API_TOKEN = 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
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.FUfSS2SubS/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.IedjGAyQes/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -102,7 +101,7 @@ OPTFLAGS = -j 4 -pipe
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/francesco/Library/Application Support/Code/CachedData/e18005f0f1b33c29e81d732535d8c0e47cafb0b5
+VSCODE_CODE_CACHE_PATH = /Users/francesco/Library/Application Support/Code/CachedData/8dfae7a5cd50421d10cd99cb873990460525a898
 # environment
 LOGNAME = francesco
 # environment
@@ -144,7 +143,7 @@ TMPDIR = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/francesco/Library/Application Support/Code/1.66.0-main.sock
+VSCODE_IPC_HOOK = /Users/francesco/Library/Application Support/Code/1.66.1-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -172,6 +171,8 @@ PAGER = less
 # environment
 LC_ALL = C
 # environment
+SECURITYSESSIONID = 186b3
+# environment
 SPACESHIP_ROOT = /Users/francesco/.oh-my-zsh/custom/themes/spaceship-prompt
 # automatic
 ^F = $(notdir $^)
@@ -185,13 +186,12 @@ PROJ_NAME = $(notdir $(shell pwd))
 MAKELEVEL := 0
 # environment
 LANG = C
- 
 # environment
-VSCODE_PID = 43175
+VSCODE_PID = 704
 # environment
 STARSHIP_SHELL = zsh
 # variable set hash-table stats:
-# Load=87/1024=8%, Rehash=0, Collisions=5/118=4%
+# Load=88/1024=9%, Rehash=0, Collisions=5/119=4%
 
 # Pattern-specific Variable Values
 
@@ -292,11 +292,12 @@ clean:
 
 # No general (`VPATH' variable) search path.
 
+ 
 # # of strings in strcache: 1
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Apr 11 17:21:29 2022
+# Finished Make data base on Tue Apr 12 18:51:55 2022
 
  
