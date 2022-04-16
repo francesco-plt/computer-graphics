@@ -1,0 +1,9 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "*.pl0": "ruby",
+        "complex": "cpp",
+        "valarray": "cpp",
+        "cmath": "cpp"
+    }
+}
