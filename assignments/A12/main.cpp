@@ -31,7 +31,7 @@ public:
         return window;
     }
 
-    void createInstance()
+    void createInstance(const char *pName)
     {
         VkApplicationInfo appInfo{};
         appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
@@ -66,36 +66,29 @@ public:
     int run()
     {
         const char pName[] = "Assignment 12";
-        VkInstance instance;
         uint32_t glfwExtensionCount = 0;
         const char **glfwExtensions;
+        VkInstance instance;
 
         // creating the window
         window = initWindow(pName);
 
-        // enumerating extensions
-        glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
-        vkEnumerateInstanceExtensionProperties(nullptr, &glfwExtensionCount, nullptr);
-        std::cout << glfwExtensionCount << " extensions supported:\n";
+        // populating instance
+        createInstance(pName);
+
+        // getting info about supported extensions
         std::set res = get_supported_extensions();
+        std::cout << res.size() << " extensions supported" << std::endl;
         for (auto it = res.begin(); it != res.end(); ++it)
             std::cout << *it << '\n';
 
-        // populating instance
-        createInstance();
-
         // main loop
-
-        /*  Recall from slides:
-            The minimal main loop just waits for the user to close the window with
-            the glfwWindowShouldClose(…) and the glfwPollEvents() commands,
-            and then leaves the loop: */
         while (!glfwWindowShouldClose(window))
         {
             glfwPollEvents();
         }
 
-        // and releasing the created object
+        // releasing the created object
         cleanup();
         return 0;
     }
