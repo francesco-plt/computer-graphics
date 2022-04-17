@@ -1,3 +1,8 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode"
+  "makefile.extensionOutputFolder": "./.vscode",
+  "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+  "files.associations": {
+    "*.pl0": "ruby",
+    "iosfwd": "cpp"
+  }
 }

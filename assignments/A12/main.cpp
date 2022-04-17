@@ -6,67 +6,108 @@
 
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
-
-#define GLM_FORCE_RADIANS
-#define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
-#define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#define GLM_ENABLE_EXPERIMENTAL
-#include <glm/gtx/hash.hpp>
 
 #include <iostream>
+#include <set>
 #include <stdexcept>
 #include <cstdlib>
 #include <vector>
+#include <cstring>
 
 const uint32_t WIDTH = 640;
 const uint32_t HEIGHT = 480;
 
+// vulkan window hello world
 class Assignment12
 {
 public:
-    // complete the Assignment class here
-    GLFWwindow *initWindow()
+    // function to generate a GLFWwindow object
+    GLFWwindow *initWindow(const char *wName)
     {
         glfwInit();
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-        GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Assignment 12", nullptr, nullptr);
+        GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, wName, nullptr, nullptr);
         return window;
+    }
+
+    void createInstance()
+    {
+        VkApplicationInfo appInfo{};
+        appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+        appInfo.pApplicationName = "Hello Triangle";
+        appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
+        appInfo.pEngineName = "No Engine";
+        appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
+        appInfo.apiVersion = VK_API_VERSION_1_0;
+    }
+
+    std::set<std::string> get_supported_extensions()
+    {
+        uint32_t count;
+        vkEnumerateInstanceExtensionProperties(nullptr, &count, nullptr); // get number of extensions
+        std::vector<VkExtensionProperties> extensions(count);
+        vkEnumerateInstanceExtensionProperties(nullptr, &count, extensions.data()); // populate buffer
+        std::set<std::string> results;
+        for (auto &extension : extensions)
+        {
+            results.insert(extension.extensionName);
+        }
+        return results;
+    }
+
+    void cleanup()
+    {
+        vkDestroyInstance(instance, nullptr);
+        glfwDestroyWindow(window);
+        glfwTerminate();
     }
 
     int run()
     {
-        GLFWwindow *window = initWindow();
+        const char pName[] = "Assignment 12";
+        VkInstance instance;
+        uint32_t glfwExtensionCount = 0;
+        const char **glfwExtensions;
 
-        uint32_t extensionCount = 0;
-        vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
+        // creating the window
+        window = initWindow(pName);
 
-        std::cout << extensionCount << " extensions supported\n";
+        // enumerating extensions
+        glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
+        vkEnumerateInstanceExtensionProperties(nullptr, &glfwExtensionCount, nullptr);
+        std::cout << glfwExtensionCount << " extensions supported:\n";
+        std::set res = get_supported_extensions();
+        for (auto it = res.begin(); it != res.end(); ++it)
+            std::cout << *it << '\n';
 
-        glm::mat4 matrix;
-        glm::vec4 vec;
-        auto test = matrix * vec;
+        // populating instance
+        createInstance();
 
+        // main loop
+
+        /*  Recall from slides:
+            The minimal main loop just waits for the user to close the window with
+            the glfwWindowShouldClose(…) and the glfwPollEvents() commands,
+            and then leaves the loop: */
         while (!glfwWindowShouldClose(window))
         {
             glfwPollEvents();
         }
 
-        glfwDestroyWindow(window);
-
-        glfwTerminate();
-
+        // and releasing the created object
+        cleanup();
         return 0;
     }
 
 private:
+    VkInstance instance;
+    GLFWwindow *window;
 };
 
 int main()
 {
     Assignment12 app;
-
     try
     {
         app.run();
@@ -76,6 +117,5 @@ int main()
         std::cerr << e.what() << std::endl;
         return EXIT_FAILURE;
     }
-
     return EXIT_SUCCESS;
 }
