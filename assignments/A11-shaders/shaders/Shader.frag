@@ -26,8 +26,12 @@ layout(set = 0, binding = 1) uniform GlobalUniformBufferObject {
 	float time;
 } gubo;
 
-float rand(vec2 co){
+float rand(in vec2 co){
     return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+vec3 cosPalette(float t, vec3 a, vec3 b, vec3 c, vec3 d) {
+    return a + b * cos(6.28318 * (c * t + d));
 }
 
 void main() {
@@ -41,13 +45,12 @@ void main() {
 		m_img = 2.0 * m_real * m_img + img;
 		m_real = temp;
 	}
-	// outColor = vec4(
-	// 	(float(i % 5) + sin(gubo.time*6.28)) / 5.0,	float(i % 10) / 10.0, float(i) / 15.0, 1.0
-	// );
+	
 	outColor = vec4(
-		rand(vec2(1.0, 1.0)),
-		rand(vec2(1.0, 1.0)),
-		rand(vec2(1.0, 1.0)),
-		rand(vec2(1.0, 1.0))
+		(float(i % 5) + sin(gubo.time*6.28)) / 5.0,	float(i % 10) / 10.0, float(i) / 15.0, 1.0
 	);
+
+	// alt approach
+	// vec3 palette = cosPalette(0.1 ,vec3(0.2,0.7,0.4), vec3(0.6,0.9,0.2), vec3(0.6,0.8,0.7), vec3(0.5,0.1,0.0));
+	// outColor = vec4(palette.x, palette.y, palette.z, 1.0f);
 }

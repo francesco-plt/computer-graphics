@@ -1,25 +1,19 @@
-// Following the Vulkan Tutorial until the
-// Drawing a triangle -> Setup -> Instance
-// section (currently at https://vulkan-tutorial.com/Drawing_a_triangle/Setup/Instance)
-// create a 640 x 480 window, with title "Assignment 12", and list the global
-// extensions supported by your O.S.
+// Following the Vulkan Tutorial as shown in the enclose Assignment13.pdf, complete
+// this Vulkan initialization sample. You can copy and past code from Example E08,
+// or from other assginments such as Assignment0.cpp
 
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
 
 #include <iostream>
-#include <set>
 #include <stdexcept>
 #include <cstdlib>
 #include <vector>
-#include <cstring>
 
 const uint32_t WIDTH = 640;
 const uint32_t HEIGHT = 480;
 
-// vulkan window hello world
-class Assignment12
+class Assignment13
 {
 private:
     static constexpr char pName[] = "Assignment 12";
@@ -31,39 +25,32 @@ private:
     VkInstanceCreateInfo createInfo{};
 
 public:
-    int run()
+    void run()
     {
-        // creating the window
-        window = initWindow(pName);
-
-        // populating instance
-        createInstance();
-
-        // getting info about supported extensions
-        std::set res = get_supported_extensions();
-        std::cout << res.size() << " extensions supported:" << std::endl;
-        for (auto it = res.begin(); it != res.end(); ++it)
-            std::cout << *it << '\n';
-
-        // main loop
-        while (!glfwWindowShouldClose(window))
-        {
-            glfwPollEvents();
-        }
-
-        // releasing the created object
+        initWindow();
+        initVulkan();
+        initApp();
+        mainLoop();
         cleanup();
-
-        return 0;
     }
 
-    // function to generate a GLFWwindow object
     GLFWwindow *initWindow(const char *wName)
     {
         glfwInit();
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
         GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, wName, nullptr, nullptr);
         return window;
+    }
+
+    void initVulkan()
+    {
+        createInstance();
+        // Continue with:
+        // Prsentation Surface Creation
+        // Physical Device selection
+        // Logical Device creation
+        // Command Pool creation
+        // Command Buffer creation
     }
 
     void createInstance()
@@ -92,21 +79,19 @@ public:
         }
     }
 
-    std::set<std::string> get_supported_extensions()
+    void initApp()
     {
-        vkEnumerateInstanceExtensionProperties(nullptr, &glfwExtensionCount, nullptr); // get number of extensions
-        std::vector<VkExtensionProperties> extensions(glfwExtensionCount);
-        vkEnumerateInstanceExtensionProperties(nullptr, &glfwExtensionCount, extensions.data()); // populate buffer
-        std::set<std::string> results;
-        for (auto &extension : extensions)
-        {
-            results.insert(extension.extensionName);
-        }
-        return results;
+        // This will not be needed in this assignment!
+    }
+
+    void mainLoop()
+    {
+        // Wait for the window to close [you can take it from Assingment 12]
     }
 
     void cleanup()
     {
+        vkDestroySurfaceKHR(instance, surface, nullptr); // new code
         vkDestroyInstance(instance, nullptr);
         glfwDestroyWindow(window);
         glfwTerminate();
@@ -115,7 +100,8 @@ public:
 
 int main()
 {
-    Assignment12 app;
+    Assignment13 app;
+
     try
     {
         app.run();
@@ -125,5 +111,6 @@ int main()
         std::cerr << e.what() << std::endl;
         return EXIT_FAILURE;
     }
+
     return EXIT_SUCCESS;
 }

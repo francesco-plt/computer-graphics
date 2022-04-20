@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sun Apr 17 13:36:35 2022
+# Make data base, printed on Wed Apr 20 21:39:09 2022
 
 # Variables
 
@@ -31,12 +31,11 @@ CPPFLAGS =  -I/usr/local/opt/zlib/include
 # automatic
 @F = $(notdir $@)
 # makefile
- 
 CURDIR := /Users/francesco/computer-graphics/assignments/A12
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"bf5b1b4990ee4163837da031589a68cd.it","_translationsConfigFile":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/tcf.json","_cacheRoot":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it","_resolvedLanguagePackCoreLocation":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/8dfae7a5cd50421d10cd99cb873990460525a898","_corruptedFile":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"bf5b1b4990ee4163837da031589a68cd.it","_translationsConfigFile":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/tcf.json","_cacheRoot":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it","_resolvedLanguagePackCoreLocation":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/dfd34e8260c270da74b5c2d86d61aee4b6d56977","_corruptedFile":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 2)
@@ -48,7 +47,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-a082653b-d4e6-4961-92fd-3453337359bf.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-ed1f0c3c-933c-4a90-9253-2b9b7268bd11.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -65,8 +64,6 @@ SPACESHIP_VERSION = 3.16.1
 PKG_CONFIG_PAGH = {PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig
 # environment
 NVM_BIN = /Users/francesco/.nvm/versions/node/v14.19.0/bin
-# environment
-LaunchInstanceID = 0DCF1F13-C2D3-40F8-89E6-6BEA8CA9B9CC
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -96,7 +93,7 @@ HOME = /Users/francesco
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/francesco/Library/Application Support/Code/CachedData/8dfae7a5cd50421d10cd99cb873990460525a898
+VSCODE_CODE_CACHE_PATH = /Users/francesco/Library/Application Support/Code/CachedData/dfd34e8260c270da74b5c2d86d61aee4b6d56977
 # environment
 LOGNAME = francesco
 # environment
@@ -138,7 +135,9 @@ TMPDIR = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/francesco/Library/Application Support/Code/1.66.1-main.sock
+VSCODE_IPC_HOOK = /Users/francesco/Library/Application Support/Code/1.66.2-main.sock
+# environment
+SPACESHIP_CHAR_SYMBOL = > 
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -148,7 +147,7 @@ MFLAGS = -Rrqp
 # environment
 NVM_DIR = /Users/francesco/.nvm
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.27004213.27004219
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.28344474.28344480
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -166,8 +165,6 @@ PAGER = less
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186c3
-# environment
 SPACESHIP_ROOT = /Users/francesco/.oh-my-zsh/custom/themes/spaceship-prompt
 # automatic
 ^F = $(notdir $^)
@@ -182,9 +179,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3626
+VSCODE_PID = 9380
 # variable set hash-table stats:
-# Load=84/1024=8%, Rehash=0, Collisions=2/115=2%
+# Load=83/1024=8%, Rehash=0, Collisions=2/114=2%
 
 # Pattern-specific Variable Values
 
@@ -290,6 +287,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Apr 17 13:36:35 2022
+# Finished Make data base on Wed Apr 20 21:39:09 2022
 
  
