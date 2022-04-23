@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Tue Apr 12 11:02:17 2022
+# Make data base, printed on Sat Apr 23 13:45:00 2022
 
 # Variables
 
@@ -18,12 +18,6 @@ make: *** No rule to make target `all'.  Stop.
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# environment
-NODE_TLS_REJECT_UNAUTHORIZED = 0
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
-LC_CTYPE = UTF-8
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
@@ -41,31 +35,25 @@ CURDIR := /Users/francesco/computer-graphics
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"fadf5a8d5cc03ff2eb657b650d49c344.it","_translationsConfigFile":"/Users/francesco/Library/Application Support/Code/clp/fadf5a8d5cc03ff2eb657b650d49c344.it/tcf.json","_cacheRoot":"/Users/francesco/Library/Application Support/Code/clp/fadf5a8d5cc03ff2eb657b650d49c344.it","_resolvedLanguagePackCoreLocation":"/Users/francesco/Library/Application Support/Code/clp/fadf5a8d5cc03ff2eb657b650d49c344.it/8dfae7a5cd50421d10cd99cb873990460525a898","_corruptedFile":"/Users/francesco/Library/Application Support/Code/clp/fadf5a8d5cc03ff2eb657b650d49c344.it/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"bf5b1b4990ee4163837da031589a68cd.it","_translationsConfigFile":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/tcf.json","_cacheRoot":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it","_resolvedLanguagePackCoreLocation":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/dfd34e8260c270da74b5c2d86d61aee4b6d56977","_corruptedFile":"/Users/francesco/Library/Application Support/Code/clp/bf5b1b4990ee4163837da031589a68cd.it/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# environment
-STARSHIP_SESSION_KEY = 2592827913801132
+# makefile
+MAKEFILE_LIST := 
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-0111d388-dcc1-4882-9bb1-f926f557e1f1.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-c97bdeb9-bedb-455d-91fb-cd046178c670.sock
 # environment
-VSCODE_CWD = /Users/francesco
+VSCODE_CWD = /
 # environment
-WARP_USE_SSH_WRAPPER = 1
-# environment
-PATH = /Applications/Hyper.app/Contents/Resources/bin:/Users/francesco/Azule:/Users/francesco/.nvm/versions/node/v14.19.0/bin:/opt/homebrew/opt/node@16/bin:/Users/francesco/bin:/Users/francesco/Library/Python/3.9/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/francesco/.local/bin:/Users/francesco/.spicetify:/Users/francesco/.local/bin:/Applications/ARM/bin
-# environment
-AZULE = /Users/francesco/Azule
+PATH = /Users/francesco/Library/Python/3.9/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/opt/node@16/bin:/Users/francesco/bin:/Users/francesco/.nvm/versions/node/v14.19.0/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/francesco/.local/bin:/Users/francesco/.local/bin:/Applications/ARM/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 LIBRARY_PATH = /opt/homebrew/lib
-# makefile
-MAKEFILE_LIST := 
 # environment
 CPATH = /opt/homebrew/include
 # environment
@@ -87,15 +75,13 @@ CDPATH = .:~/Library/Application Support/abnerworks.Typora/:
 # environment
 HOMEBREW_GITHUB_API_TOKEN = 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
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.FUfSS2SubS/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.wUf1jVBbdb/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /Users/francesco/computer-graphics
-# environment
-WARP_PS1 = $(/usr/local/bin/starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -105,11 +91,7 @@ HOME = /Users/francesco
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CLI = 1
-# environment
-WARP_FEATURE_FLAG_HONOR_PS1 = 1
-# environment
-VSCODE_CODE_CACHE_PATH = /Users/francesco/Library/Application Support/Code/CachedData/8dfae7a5cd50421d10cd99cb873990460525a898
+VSCODE_CODE_CACHE_PATH = /Users/francesco/Library/Application Support/Code/CachedData/dfd34e8260c270da74b5c2d86d61aee4b6d56977
 # environment
 LOGNAME = francesco
 # environment
@@ -124,14 +106,12 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
 XPC_FLAGS = 0x0
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 4
+SHLVL = 1
 # default
 MAKE_VERSION := 3.81
 # environment
@@ -144,8 +124,6 @@ LESS = -R
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
-# environment
-TERM_PROGRAM = WarpTerminal
 # default
 .VARIABLES := 
 # environment
@@ -153,11 +131,11 @@ TMPDIR = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/francesco/Library/Application Support/Code/1.66.1-main.sock
+VSCODE_IPC_HOOK = /Users/francesco/Library/Application Support/Code/1.66.2-main.sock
+# environment
+SPACESHIP_CHAR_SYMBOL = > 
 # makefile
 MAKEFLAGS = Rrqp
-# environment
-WARP_FEATURE_FLAG_SSH = 1
 # environment
 MFLAGS = -Rrqp
 # automatic
@@ -165,7 +143,7 @@ MFLAGS = -Rrqp
 # environment
 NVM_DIR = /Users/francesco/.nvm
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.26075371.26075377.6A902AAE-3CD3-4B4D-B765-193D0DB4AB2C
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.28344474.28344480
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -183,8 +161,6 @@ PAGER = less
 # environment
 LC_ALL = C
 # environment
-CONDA_CHANGEPS1 = false
-# environment
 SPACESHIP_ROOT = /Users/francesco/.oh-my-zsh/custom/themes/spaceship-prompt
 # automatic
 ^F = $(notdir $^)
@@ -197,13 +173,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
-VSCODE_PID = 21840
-# environment
-STARSHIP_SHELL = zsh
+VSCODE_PID = 9380
 # variable set hash-table stats:
-# Load=94/1024=9%, Rehash=0, Collisions=3/115=3%
+# Load=80/1024=8%, Rehash=0, Collisions=2/101=2%
 
 # Pattern-specific Variable Values
 
@@ -258,7 +230,6 @@ makefile:
 
 # Not a target:
 .DEFAULT:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -286,6 +257,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Tue Apr 12 11:02:17 2022
+# Finished Make data base on Sat Apr 23 13:45:00 2022
 
  

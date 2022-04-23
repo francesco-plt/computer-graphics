@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Thu Apr 21 13:39:07 2022
+# Make data base, printed on Sat Apr 23 13:45:09 2022
 
 # Variables
 
@@ -18,8 +18,6 @@ make: *** No rule to make target `all'.  Stop.
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
@@ -33,7 +31,7 @@ CPPFLAGS =  -I/usr/local/opt/zlib/include
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/francesco/computer-graphics/assignments/A12
+CURDIR := /Users/francesco/computer-graphics/assignments/A13
 # makefile
 SHELL = /bin/sh
 # environment
@@ -49,11 +47,11 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-48a3b545-b7ed-4639-9862-8468b5632db9.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-15f6c4e2-a216-40f2-8aae-eaf479d82e3d.sock
 # environment
-VSCODE_CWD = /Users/francesco/computer-graphics/assignments/A13
+VSCODE_CWD = /
 # environment
-PATH = /Users/francesco/Library/Python/3.9/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/opt/node@16/bin:/Users/francesco/bin:/Users/francesco/.nvm/versions/node/v14.19.0/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/francesco/.local/bin:/Users/francesco/.local/bin:/Applications/ARM/bin:/Users/francesco/.spicetify
+PATH = /Users/francesco/Library/Python/3.9/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/opt/node@16/bin:/Users/francesco/bin:/Users/francesco/.nvm/versions/node/v14.19.0/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/TeX/texbin:/usr/local/MacGPG2/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/francesco/.local/bin:/Users/francesco/.local/bin:/Applications/ARM/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
@@ -85,7 +83,7 @@ SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.wUf1jVBbdb/Listeners
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /Users/francesco/computer-graphics/assignments/A12
+PWD = /Users/francesco/computer-graphics/assignments/A13
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -94,8 +92,6 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 HOME = /Users/francesco
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
-# environment
-VSCODE_CLI = 1
 # environment
 VSCODE_CODE_CACHE_PATH = /Users/francesco/Library/Application Support/Code/CachedData/dfd34e8260c270da74b5c2d86d61aee4b6d56977
 # environment
@@ -112,24 +108,18 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
 XPC_FLAGS = 0x0
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
 # environment
-LC_TERMINAL = iTerm2
-# environment
-SHLVL = 3
+SHLVL = 1
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = francesco
 # makefile
-.DEFAULT_GOAL := A12
-# default
-MAKECMDGOALS := all
-# environment
-TERM_SESSION_ID = w1t0p0:E8CA2D9A-13C3-4E54-8962-884B6B326154
+.DEFAULT_GOAL := A13
 # environment
 LESS = -R
 # automatic
@@ -138,8 +128,6 @@ LESS = -R
 MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
 # makefile (from `Makefile', line 3)
 INC = -I./headers
-# environment
-TERM_PROGRAM = iTerm.app
 # default
 .VARIABLES := 
 # environment
@@ -157,23 +145,13 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-TERM_PROGRAM_VERSION = 3.5.0beta4
-# environment
 NVM_DIR = /Users/francesco/.nvm
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.28344474.28344480.DC251006-DDB5-42B5-AEB7-9709093CBB2D
-# environment
-LC_TERMINAL_VERSION = 3.5.0beta4
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.28344474.28344480
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
-# environment
-TERMINFO_DIRS = /Applications/iTerm.app/Contents/Resources/terminfo:/usr/share/terminfo
-# environment
-ITERM_SESSION_ID = w1t0p0:E8CA2D9A-13C3-4E54-8962-884B6B326154
-# environment
-COLORFGBG = 15;0
 # environment
 __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x4
 # environment
@@ -182,8 +160,6 @@ COMMAND_MODE = unix2003
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
-# environment
-ITERM_PROFILE = Default
 # environment
 PAGER = less
 # environment
@@ -203,11 +179,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
 VSCODE_PID = 9380
 # variable set hash-table stats:
-# Load=96/1024=9%, Rehash=0, Collisions=5/127=4%
+# Load=83/1024=8%, Rehash=0, Collisions=2/114=2%
 
 # Pattern-specific Variable Values
 
@@ -215,9 +189,9 @@ VSCODE_PID = 9380
 
 # Directories
 
-# . (device 16777232, inode 27575411): 9 files, no impossibilities.
+# . (device 16777232, inode 28812765): 8 files, no impossibilities.
 
-# 9 files, no impossibilities in 1 directories.
+# 8 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -248,13 +222,13 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-16 18:09:41
+#  Last modified 2022-04-22 18:10:33
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-test: A12
+test: A13
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
@@ -271,7 +245,13 @@ build:
 	g++ $(CFLAGS) $(INC) -o $(PROJ_NAME) main.cpp $(LDFLAGS)
 	
 
-A12: main.cpp
+# Not a target:
+main.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+A13: main.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -280,19 +260,12 @@ A12: main.cpp
 	
 
 # Not a target:
-main.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 clean:
- 
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
@@ -314,6 +287,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Apr 21 13:39:07 2022
+# Finished Make data base on Sat Apr 23 13:45:09 2022
 
  

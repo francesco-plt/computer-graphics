@@ -24,6 +24,7 @@ class Assignment12
 private:
     static constexpr char pName[] = "Assignment 12";
     VkInstance instance;
+    VkResult result;
     GLFWwindow *window;
     uint32_t glfwExtensionCount;
     const char **glfwExtensions;
@@ -34,7 +35,7 @@ public:
     int run()
     {
         // creating the window
-        window = initWindow(pName);
+        window = initWindow();
 
         // populating instance
         createInstance();
@@ -58,11 +59,11 @@ public:
     }
 
     // function to generate a GLFWwindow object
-    GLFWwindow *initWindow(const char *wName)
+    GLFWwindow *initWindow()
     {
         glfwInit();
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-        GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, wName, nullptr, nullptr);
+        GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, pName, nullptr, nullptr);
         return window;
     }
 
@@ -77,14 +78,13 @@ public:
         appInfo.apiVersion = VK_API_VERSION_1_0;
 
         // createinfo
-        VkInstanceCreateInfo createInfo{};
         createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
         createInfo.pApplicationInfo = &appInfo;
         createInfo.enabledExtensionCount = glfwExtensionCount;
         createInfo.ppEnabledExtensionNames = glfwExtensions;
         createInfo.enabledLayerCount = 0;
 
-        VkResult result = vkCreateInstance(&createInfo, nullptr, &instance);
+        result = vkCreateInstance(&createInfo, nullptr, &instance);
 
         if (result != VK_SUCCESS)
         {
