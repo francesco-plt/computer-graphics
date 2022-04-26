@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sat Apr 23 13:45:00 2022
+# Make data base, printed on Mon Apr 25 17:37:58 2022
 
 # Variables
 
@@ -20,6 +20,7 @@ make: *** No rule to make target `all'.  Stop.
 ?F = $(notdir $?)
 # environment
 VSCODE_LOG_NATIVE = false
+ 
 # environment
 NVM_INC = /Users/francesco/.nvm/versions/node/v14.19.0/include/node
 # automatic
@@ -45,7 +46,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-c97bdeb9-bedb-455d-91fb-cd046178c670.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-c6496bb3-612e-432e-b8fd-3b06497ba3ca.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -193,6 +194,7 @@ VSCODE_PID = 9380
 
 # Files
 
+ 
 # Not a target:
 all:
 #  Command-line target.
@@ -257,6 +259,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Sat Apr 23 13:45:00 2022
+# Finished Make data base on Mon Apr 25 17:37:58 2022
 
  

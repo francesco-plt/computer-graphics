@@ -1,8 +1,6 @@
-// Following the Vulkan Tutorial until the
-// Drawing a triangle -> Setup -> Instance
-// section (currently at https://vulkan-tutorial.com/Drawing_a_triangle/Setup/Instance)
-// create a 640 x 480 window, with title "Assignment 12", and list the global
-// extensions supported by your O.S.
+// Following the Vulkan Tutorial as shown in the enclose Assignment13.pdf, complete
+// this Vulkan initialization sample. You can copy and past code from Example E08,
+// or from other assginments such as Assignment0.cpp
 
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
@@ -39,10 +37,10 @@ struct QueueFamilyIndices
 };
 
 // vulkan window hello world
-class Assignment12
+class Assignment13
 {
 private:
-    static constexpr char pName[] = "Assignment 12";
+    static constexpr char pName[] = "Assignment 13";
     GLFWwindow *window;
     VkInstance instance;
     VkResult result;
@@ -147,6 +145,70 @@ public:
         {
             throw std::runtime_error("failed to find a suitable GPU!");
         }
+    }
+
+    void getDeviceInfo()
+    {
+        // check device properties and features
+        // Show device properties
+        VkPhysicalDeviceProperties deviceProperties;
+        vkGetPhysicalDeviceProperties(physicalDevice, &deviceProperties);
+
+        std::cout << "\tAPI version: 0x" << std::hex << deviceProperties.apiVersion << "\n";
+        std::cout << "\tDriver version: 0x" << std::hex << deviceProperties.driverVersion << "\n";
+        std::cout << "\tVendor ID: 0x" << std::hex << deviceProperties.vendorID << "\n";
+        std::cout << "\tDevice ID: 0x" << std::hex << deviceProperties.deviceID << "\n";
+        std::cout << "\tPhysical Device Type: " << deviceProperties.deviceType << "\t";
+        if (deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU)
+            std::cout << " (Discrete GPU)\n";
+        if (deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU)
+            std::cout << " (Integrated GPU)\n";
+        if (deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU)
+            std::cout << " (Virtual GPU)\n";
+        if (deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_CPU)
+            std::cout << " (CPU)\n";
+        std::cout << "\tDevice Name: " << deviceProperties.deviceName << "\n";
+
+        // Show device features
+        VkPhysicalDeviceFeatures deviceFeatures;
+        vkGetPhysicalDeviceFeatures(physicalDevice, &deviceFeatures);
+
+        std::cout << "\n\tPhysical Device Features:\n";
+        std::cout << "\t\tgeometryShader = " << deviceFeatures.geometryShader << "\n";
+        std::cout << "\t\ttessellationShader = " << deviceFeatures.tessellationShader << "\n";
+        std::cout << "\t\tmultiDrawIndirect = " << deviceFeatures.multiDrawIndirect << "\n";
+        std::cout << "\t\twideLines = " << deviceFeatures.wideLines << "\n";
+        std::cout << "\t\tlargePoints = " << deviceFeatures.largePoints << "\n";
+        std::cout << "\t\tmultiViewport = " << deviceFeatures.multiViewport << "\n";
+        std::cout << "\t\tocclusionQueryPrecise = " << deviceFeatures.occlusionQueryPrecise << "\n";
+        std::cout << "\t\tpipelineStatisticsQuery = " << deviceFeatures.pipelineStatisticsQuery << "\n";
+        std::cout << "\t\tshaderFloat64 = " << deviceFeatures.shaderFloat64 << "\n";
+        std::cout << "\t\tshaderInt64 = " << deviceFeatures.shaderInt64 << "\n";
+        std::cout << "\t\tshaderInt16 = " << deviceFeatures.shaderInt16 << "\n";
+
+        // Show device memory properties
+        VkPhysicalDeviceMemoryProperties vpdmp;
+        vkGetPhysicalDeviceMemoryProperties(physicalDevice, &vpdmp);
+
+        std::cout << "\n\tMemory Types: " << vpdmp.memoryTypeCount << "\n";
+        for (unsigned int i = 0; i < vpdmp.memoryTypeCount; i++)
+        {
+            VkMemoryType vmt = vpdmp.memoryTypes[i];
+            std::cout << "\t\tMemory: " << i << ":";
+            if ((vmt.propertyFlags & VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT) != 0)
+                std::cout << " DeviceLocal";
+            if ((vmt.propertyFlags & VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT) != 0)
+                std::cout << " HostVisible";
+            if ((vmt.propertyFlags & VK_MEMORY_PROPERTY_HOST_COHERENT_BIT) != 0)
+                std::cout << " HostCoherent";
+            if ((vmt.propertyFlags & VK_MEMORY_PROPERTY_HOST_CACHED_BIT) != 0)
+                std::cout << " HostCached";
+            if ((vmt.propertyFlags & VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT) != 0)
+                std::cout << " LazilyAllocated";
+            std::cout << "\n";
+        }
+
+        std::cout << "\n";
     }
 
     QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device)
@@ -287,6 +349,7 @@ public:
         createInstance();
         createSurface();
         pickPhysicalDevice();
+        getDeviceInfo();
         createLogicalDevice();
         createCommandPool();
         createCommandBuffer();
@@ -311,7 +374,7 @@ public:
 
 int main()
 {
-    Assignment12 app;
+    Assignment13 app;
     try
     {
         app.run();

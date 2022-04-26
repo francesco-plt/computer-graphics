@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sat Apr 23 13:45:09 2022
+# Make data base, printed on Mon Apr 25 17:38:21 2022
 
 # Variables
 
@@ -47,7 +47,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-15f6c4e2-a216-40f2-8aae-eaf479d82e3d.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/sb/mg7lbl6n1dl7g3hrzlxsjm2c0000gn/T/vscode-ipc-240804be-e919-4464-8815-a07b86cfd6a8.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -189,9 +189,9 @@ VSCODE_PID = 9380
 
 # Directories
 
-# . (device 16777232, inode 28812765): 8 files, no impossibilities.
+# . (device 16777232, inode 28812765): 9 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 9 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -287,6 +287,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Apr 23 13:45:09 2022
+# Finished Make data base on Mon Apr 25 17:38:21 2022
 
  
