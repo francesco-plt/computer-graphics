@@ -1,4 +1,4 @@
-// Following the Vulkan Tutorial as shown in the enclose Assignment13.pdf, complete
+// Following the Vulkan Tutorial as shown in the enclose Assignment14.pdf, complete
 // this Vulkan initialization sample. You can copy and past code from Example E08,
 // or from other assginments such as Assignment0.cpp
 
@@ -37,7 +37,7 @@ struct QueueFamilyIndices
 };
 
 // vulkan window hello world
-class Assignment13
+class Assignment14
 {
 private:
     static constexpr char pName[] = "Assignment 13";
@@ -355,6 +355,9 @@ public:
         createLogicalDevice();
         createCommandPool();
         createCommandBuffer();
+        //****** New!
+        // Swap chain creation
+        // Image view creation
     }
 
     void mainLoop()
@@ -376,7 +379,7 @@ public:
 
 int main()
 {
-    Assignment13 app;
+    Assignment14 app;
     try
     {
         app.run();

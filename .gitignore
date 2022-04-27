@@ -1,2 +1,12 @@
+# excluding DS_Store macos metadata files
 .DS_Store
+assignments/.DS_Store
+assignments/A*/.DS_Store
+
+# excluding vscode metadata files
+.vscode
+assignments/.vscode
+assignments/A*/.vscode
+
+# excluding already compiled executables
 assignments/A*/A[0-9][0-9]*
