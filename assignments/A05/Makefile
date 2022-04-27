@@ -11,8 +11,8 @@ $(PROJ_NAME): main.cpp
 test: $(PROJ_NAME)
 	./$(PROJ_NAME)
 
-clean:
-	rm -f $(PROJ_NAME)
-
 build:
-	g++ $(CFLAGS) $(INC) -o $(PROJ_NAME) main.cpp $(LDFLAGS)	
+	g++ $(CFLAGS) $(INC) -o $(PROJ_NAME) main.cpp $(LDFLAGS)
+
+clean:
+	rm -f $(PROJ_NAME)	

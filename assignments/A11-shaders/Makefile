@@ -12,11 +12,7 @@ test: $(PROJ_NAME)
 	./$(PROJ_NAME)
 
 build:
-	$(info compiling shaders...)
-	@glslc shaders/Shader.vert -o shaders/Vert.spv
-	@glslc shaders/Shader.frag -o shaders/Frag.spv
-	$(info done. compiling program...)
-	@g++ $(CFLAGS) $(INC) -o $(PROJ_NAME) main.cpp $(LDFLAGS)
+	g++ $(CFLAGS) $(INC) -o $(PROJ_NAME) main.cpp $(LDFLAGS)
 
 clean:
 	rm -f $(PROJ_NAME)	

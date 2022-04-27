@@ -4,7 +4,6 @@ INC=-I./headers
 LDFLAGS = -lglfw -lvulkan -ldl -lpthread
 
 $(PROJ_NAME): main.cpp
-	rm -f $(PROJ_NAME)
 	g++ $(CFLAGS) $(INC) -o $(PROJ_NAME) main.cpp $(LDFLAGS)
 
 .PHONY: test clean
@@ -12,5 +11,8 @@ $(PROJ_NAME): main.cpp
 test: $(PROJ_NAME)
 	./$(PROJ_NAME)
 
+build:
+	g++ $(CFLAGS) $(INC) -o $(PROJ_NAME) main.cpp $(LDFLAGS)
+
 clean:
-	rm -f $(PROJ_NAME)
+	rm -f $(PROJ_NAME)	
