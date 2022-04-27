@@ -1,5 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/francesco/computer-graphics/assignments/A11-shaders'
-make: `A11-shaders' is up to date.
-make: Leaving directory `/Users/francesco/computer-graphics/assignments/A11-shaders'
- 
