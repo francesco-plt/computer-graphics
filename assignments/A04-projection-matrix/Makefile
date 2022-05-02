@@ -1,4 +1,5 @@
-PROJ_NAME = $(notdir $(shell pwd))
+PWD = $(shell pwd)
+PROJ_NAME = $(shell cut -c 1-3 <<< $(notdir $(PWD)))
 CFLAGS = -std=c++17 -O2
 INC=-I./headers
 LDFLAGS = -lglfw -lvulkan -ldl -lpthread

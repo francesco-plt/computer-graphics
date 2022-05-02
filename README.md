@@ -18,6 +18,8 @@ Once it's done compiling you can run the executable.
 
 ## Todo
 
-- [ ] In `A9` the models for the sphere and the spring are not correct.
+- [ ] In `A9` the models for the sphere and the spring are not correct;
 
-- [ ] `A14` needs to be implemented.
+- [ ] `A11` needs rework;
+
+- [ ] `A15` needs to be implemented.
