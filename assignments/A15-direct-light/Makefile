@@ -17,3 +17,6 @@ build:
 
 clean:
 	rm -f $(PROJ_NAME)	
+
+shad:
+	glslc shaders/PhongShader.frag -o shaders/PhongFrag.spv

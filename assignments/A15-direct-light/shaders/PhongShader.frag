@@ -1,4 +1,9 @@
-#version 450#extension GL_ARB_separate_shader_objects : enable
+/*
+	In this assignment you have to complete the Fragment Shader contained in file 
+	shaders/PhongShader.frag , to implement Direct, Point and Spot light models
+*/
+#version 450
+#extension GL_ARB_separate_shader_objects : enable
 
 layout(location = 0) in vec3 fragPos;
 layout(location = 1) in vec3 fragNorm;
@@ -22,37 +27,105 @@ layout(binding = 2) uniform GlobalUniformBufferObject {
 
 /**** Modify from here *****/
 
+/*
+	For each light model:
+	- function ending with _light_dir() should return a vec3 vector containing the direction of the light for the 
+	considered point on the object
+	- function _light_color() should return a vec3 containing the RGB color of the light,
+	which includes both the hue and the intensity of the considered source.
+	
+	Both functions receives an argument vec3 pos, containg the world space position of the considered
+	point on the object. An uniform block called gubo, contains all the parameters required to 
+	implement the light models.
+
+	all the needed parameters are stored in the uniform block gubo:
+	- gubo.lightDir -> a vec3 containing the direction of the light (for spot and directional lights).
+	- gubo.lightPos -> a vec3 containing the position of the light (for spot and point lights).
+	- gubo.lightColor -> a vec3 containing the basic color of the light.
+	- gubo.coneInOutDecayExp.x-> a float component containing the cosine of the outer angle of a spot light.
+	- gubo.coneInOutDecayExp.y-> a float component containing the cosine of the inner angle of a spot light.
+	- gubo.coneInOutDecayExp.z-> a float component containing the basic distance g for both spot and point lights.
+	- gubo.coneInOutDecayExp.w-> a float component containing the denominator exponent b for both spot and point lights:
+		0 for no decay, 1 for linear decay and 2 for quadratic fading.
+*/
+
+// directional light
+
+// direction
 vec3 direct_light_dir(vec3 pos) {
-	// Directional light direction
-	return vec3(0.0f, 0.0f, 1.0f);
+	return gubo.lightDir;
 }
-
+// color
 vec3 direct_light_color(vec3 pos) {
-	// Directional light color
-	return vec3(0.5f, 1.0f, 0.5f);
+	return gubo.lightColor;
 }
 
+// point light
+
+// direction
 vec3 point_light_dir(vec3 pos) {
-	// Point light direction
-	return vec3(0.0f, 0.0f, 1.0f);
+	// position of the light = position of the light - position of the object
+	// note: light direction should be normalized to make it an unitary vector
+	return normalize(gubo.lightPos - pos);
 }
+/*	
+	color
+	
+	we need to take into account the decay factor:
+	the intensity reduces at a rate that is proportional
+	to the inverse of the square of the distance.
+	The following expression becomes:
 
+				⎛         b⎞    
+				⎜⎛   g   ⎞ ⎟    
+	L(, lx) =	⎜⎜───────⎟ ⎟ ⋅ l
+				⎝⎝|p - x|⎠ ⎠    
+*/
 vec3 point_light_color(vec3 pos) {
-	// Point light color
-	return vec3(0.5f, 1.0f, 0.5f);
+	float g = gubo.coneInOutDecayExp.z;		// basic distance
+	vec3 p = gubo.lightPos;					// position of the light
+	vec3 x = pos;							// position of the object
+	float b = gubo.coneInOutDecayExp.w;		// decay exponent
+	vec3 l = gubo.lightColor;				// basic color of the light
+	float dp = length(p - x);				// distance between the light and the object
+	return pow(g/dp, b) * l;
 }
 
+/*
+	spot light
+	spot lights are special projectors that are used to illuminate 
+	specific objects or locations. They are conic sources characterized by
+	a direction d and a position p. For the implementation of the spot lights,
+	usually the cosine of the half-angles of the inner and outer cones cin and cout are used
+*/
+
+// direction
 vec3 spot_light_dir(vec3 pos) {
-	// Spot light direction
-	return vec3(0.0f, 0.0f, 1.0f);
+	return normalize(gubo.lightPos - pos);
 }
-
+// color
 vec3 spot_light_color(vec3 pos) {
-	// Spot light color
-	return vec3(0.5f, 1.0f, 0.5f);
+	// L is equal to point light
+	float g = gubo.coneInOutDecayExp.z;		// basic distance
+	vec3 p = gubo.lightPos;					// position of the light
+	vec3 x = pos;							// position of the object
+	float dc = 1/pow(g, 2);					// decay constant (0.5 if constant)
+	float b = gubo.coneInOutDecayExp.w;		// decay exponent
+	vec3 l = gubo.lightColor;				// basic color of the light
+	float dp = length(p - x);				// distance between the light and the object
+	vec3 L = pow(g/dp, dc- b) * l;
+
+	// this is new: for the spot light, we need to take into account the angle of the cone
+	// we use the cosine of the half-angle of the cone
+	// f = cone dimming effect = clamp(cosine of light direction vector and the direction of the spot)
+	float cout = gubo.coneInOutDecayExp.x;
+	float cin = gubo.coneInOutDecayExp.y;
+	float alpha = dot(normalize(gubo.lightDir), normalize(gubo.lightPos - pos));
+	float f = clamp((alpha - cout) / (cin - cout), 0.0, 1.0);
+	return L * f;
 }
 
-/**** To from here *****/
+/**** To here *****/
 
 
 
