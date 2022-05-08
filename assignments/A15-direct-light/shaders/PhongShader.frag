@@ -74,12 +74,6 @@ vec3 point_light_dir(vec3 pos) {
 	we need to take into account the decay factor:
 	the intensity reduces at a rate that is proportional
 	to the inverse of the square of the distance.
-	The following expression becomes:
-
-				⎛         b⎞    
-				⎜⎛   g   ⎞ ⎟    
-	L(, lx) =	⎜⎜───────⎟ ⎟ ⋅ l
-				⎝⎝|p - x|⎠ ⎠    
 */
 vec3 point_light_color(vec3 pos) {
 	float g = gubo.coneInOutDecayExp.z;		// basic distance

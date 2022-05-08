@@ -21,3 +21,4 @@ Once it's done compiling you can run the executable.
 - [ ] In `A9` the models for the sphere and the spring are not correct;
 - [ ] `A11` needs rework;
 - [ ] Add project folder as a [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+- [ ] `A16` needs to be implemented
