@@ -97,7 +97,7 @@ Which in code become:
 	return L1 * (A + B * G * sin(alpha) * tan(beta));
 ```
 
-### Toon
+### Toon (Diffuse)
 
 Toon shading simplifies the  output color range, using only discrete values according to  a set of thresholds. In this way it achieves a cartoon-like rendering style. It can be used both for the diffuse and specular components of the BRDF.
 
@@ -108,6 +108,21 @@ $$
 \boldsymbol{m}_{D n} & \overrightarrow{l x} \cdot \boldsymbol{n}_{x}<t_{D}\end{cases}
 \end{aligned}
 $$
+
+```c
+vec3 Toon_Diffuse_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, vec3 Cd, float thr) {
+	float thr2 = 0.07;
+	vec3 Cd1 = 0.002f * C;
+
+	if (dot(L, N) < thr2) {
+		return Cd1;
+	} else if(dot(L, N) < thr) {
+		return Cd;
+	} else {
+		return C;
+	}
+}
+```
 
 ## Specular reflection models
 
@@ -139,7 +154,17 @@ f_{\text {specular }}\left(x, \vec{x}, \omega_{r}\right)=\boldsymbol{m}_{S} \cdo
 \end{gathered}
 $$
 
-### Toon
+```c
+vec3 Phong_Specular_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, float gamma)  {
+	// reflection happens in the opposite direction
+	// For this reason the minus sign is required
+	vec3 r = - reflect(L, N);
+	float intensity = pow(clamp(dot(V, r), 0.0, 1.0), gamma);
+	return C * intensity;
+}
+```
+
+### Toon (Specular)
 
 $$
 \begin{aligned}
@@ -148,3 +173,17 @@ f_{s p e c u l a r}\left(x, \overrightarrow{l x}, \omega_{r}\right) &= \begin{ca
 \boldsymbol{m}_{S 0} & \omega_{r} \cdot \boldsymbol{r}_{l . x}<t_{S}\end{cases}
 \end{aligned}
 $$
+
+```c
+vec3 Toon_Specular_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, float thr)  {
+
+	vec3 Ms0 =  C;
+	vec3 Ms1 =  vec3(0, 0, 0);
+	vec3 r = - reflect(L, N);
+	if(dot(V, r) < thr) {
+		return Ms1;
+	} else {
+		return Ms0;
+	}
+}
+```

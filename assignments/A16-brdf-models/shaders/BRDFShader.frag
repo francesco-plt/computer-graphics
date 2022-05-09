@@ -88,17 +88,14 @@ vec3 Toon_Diffuse_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, vec3 Cd, float thr) {
 // additional parameter:
 // float thr : color threshold
 vec3 Toon_Specular_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, float thr)  {
-	float thr2 = 0.07;
-	vec3 Cd = 0.2f * C;
-	vec3 Cd1 = 0.002f * C;
-	vec3 r = - reflect(L, N);
 
-	if (dot(V, r) < thr2) {
-		return Cd1;
-	} else if(dot(V, r) < thr) {
-		return Cd;
+	vec3 Ms0 =  C;
+	vec3 Ms1 =  vec3(0, 0, 0);	// light color in shadow
+	vec3 r = - reflect(L, N);
+	if(dot(V, r) < thr) {
+		return Ms1;
 	} else {
-		return C;
+		return Ms0;
 	}
 }
 
