@@ -14,7 +14,9 @@ void createSpring(float rounds, float height, float thickness, float radius, int
             M4_vertices.push_back(thickness * sin(a2) + height * t / rounds);
         }
     }
-    for (GLuint i = 0; i < (GLuint)M4_vertices.size() / 3 - slices; ++i)
+
+    int size = M4_vertices.size();
+    for (int i = 0; i < size / 3 - slices; ++i)
     {
         M4_indices.push_back(i);
         M4_indices.push_back(i + slices);

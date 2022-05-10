@@ -43,7 +43,7 @@ vec3 Lambert_Diffuse_BRDF(vec3 L, vec3 N, vec3 V, vec3 C) {
 // float sigma : roughness of the material
 vec3 Oren_Nayar_Diffuse_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, float sigma) {
 	float thi = acos(dot(L, N));
-	float thr = acos(dot(V, N));
+	float thr = acos(dot(V, N));	// V = omega_r
 	float alpha = max(thi, thr);
 	float beta = min(thi, thr);
 	float A = 1 - 0.5 * pow(sigma, 2) / (pow(sigma, 2) + 0.33);
@@ -74,7 +74,6 @@ vec3 Phong_Specular_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, float gamma)  {
 vec3 Toon_Diffuse_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, vec3 Cd, float thr) {
 	float thr2 = 0.07;
 	vec3 Cd1 = 0.002f * C;
-
 	if (dot(L, N) < thr2) {
 		return Cd1;
 	} else if(dot(L, N) < thr) {
