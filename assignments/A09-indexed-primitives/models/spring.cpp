@@ -1,24 +1,20 @@
-void createSpring(float rounds, float height, float thickness, float radius, int slices, int step)
-{
-    for (int i = -slices; i <= rounds * 360 + step; i += step)
-    {
-        for (int j = 0; j < slices; j++)
-        {
-            float t = (float)i / 360 + (float)j / slices * step / 360;
-            t = std::max(0.0f, std::min(rounds, t));
-            float a1 = t * M_PI * 2;
-            float a2 = (float)j / slices * M_PI * 2;
-            float d = radius + thickness * cos(a2);
-            M4_vertices.push_back(d * cos(a1));
-            M4_vertices.push_back(d * sin(a1));
-            M4_vertices.push_back(thickness * sin(a2) + height * t / rounds);
-        }
-    }
+#include <GLFW/glfw3.h>
 
-    int size = M4_vertices.size();
-    for (int i = 0; i < size / 3 - slices; ++i)
+void createSpring(int springRes, int cylinderRes, float springRadius, float cylinderRadius, float coilDistance)
+{
+    float pi = M_PI;
+    float var = (coilDistance + 2 * cylinderRadius) / 2;
+
+    for (int i = 0; i < springRes; i++)
     {
-        M4_indices.push_back(i);
-        M4_indices.push_back(i + slices);
+        for (int j = 0; j < cylinderRes; j++)
+        {
+            glm::vec4 cylinderVector = glm::mat4(glm::quat(glm::vec3(0, 0, 2 * j * pi / cylinderRes))) * glm::vec4(cylinderRadius, 0, 1, 1);
+            glm::vec4 vert = glm::mat4(glm::quat(glm::vec3(0, 2 * i * pi / 18, 0))) * (glm::vec4(0, var, 0, 1) * float(i) * springRadius * cylinderVector);
+
+            M3_vertices.push_back(vert.x);
+            M3_vertices.push_back(vert.y);
+            M3_vertices.push_back(vert.z);
+        }
     }
 }

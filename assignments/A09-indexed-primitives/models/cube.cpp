@@ -19,12 +19,10 @@ void createCube()
         {1, 1, 0},
     };
 
-    M1_vertices.resize(8 * 3);
-    for (int i = 0; i < 8; i++)
-    {
-        M1_vertices[3 * i] = cubeVertices[i].x;
-        M1_vertices[3 * i + 1] = cubeVertices[i].y;
-        M1_vertices[3 * i + 2] = cubeVertices[i].z;
+    for(int i = 0; i < cubeVertices.size(); i++) {
+        M1_vertices.push_back(cubeVertices[i].x);
+        M1_vertices.push_back(cubeVertices[i].y);
+        M1_vertices.push_back(cubeVertices[i].z);
     }
 
     M1_indices.resize(36);

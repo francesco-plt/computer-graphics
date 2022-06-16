@@ -1,61 +1,91 @@
-/*
-    M2: cylinder
-    note that:
-    NSlices is the resolution of the circumference
-    radius is the radius of the cylinder
-    height is the height of the cylinder
-*/
 void createCylinder(int nSlices, float radius, float height)
 {
-    float cx = 0, cy = 0, cz = -3;
+    // resolution of the cylinder
+    float res = 2.0 * M_PI / nSlices;
 
-    M2_vertices.resize((nSlices + 1) * 6);
+    /* ---------- VERTICES ---------- */
 
-    // top face
-    M2_vertices[0] = cx;
-    M2_vertices[1] = cy + height;
-    M2_vertices[2] = cz;
-    for (int i = 0; i < nSlices; i++)
-    {
-        M2_vertices[(i + 1) * 3 + 0] = cx + radius * cos((float)(i * 2.0 * M_PI / nSlices)); // x of the vertex
-        M2_vertices[(i + 1) * 3 + 1] = cy + height;                                          // y of the vertex
-        M2_vertices[(i + 1) * 3 + 2] = cz + radius * sin((float)(i * 2.0 * M_PI / nSlices)); // z of the vertex
-    }
+    // center of the bottom face circumcircle
+    float cx = 0, cy = 0, cz = 0;
+
+    M2_vertices.push_back(cx);
+    M2_vertices.push_back(cy);
+    M2_vertices.push_back(cz);
 
     // bottom face
-    M2_vertices[nSlices * 3 + 3] = cx;
-    M2_vertices[nSlices * 3 + 4] = cy;
-    M2_vertices[nSlices * 3 + 5] = cz;
     for (int i = 0; i < nSlices; i++)
     {
-        M2_vertices[(i + nSlices + 2) * 3 + 0] = cx + radius * cos((float)(i * 2.0 * M_PI / nSlices)); // x of the vertex
-        M2_vertices[(i + nSlices + 2) * 3 + 1] = cy;                                                   // y of the vertex
-        M2_vertices[(i + nSlices + 2) * 3 + 2] = cz + radius * sin((float)(i * 2.0 * M_PI / nSlices)); // z of the vertex
+        M2_vertices.push_back(cx + radius * cos(i * res));
+        M2_vertices.push_back(cy);
+        M2_vertices.push_back(cz + radius * sin(i * res));
     }
 
-    M2_indices.resize(18 * nSlices);
+    M2_vertices.push_back(cx);
+    M2_vertices.push_back(cy + height);
+    M2_vertices.push_back(cz);
 
+    // top face
     for (int i = 0; i < nSlices; i++)
     {
-        M2_indices[i * 3] = 0;
-        M2_indices[i * 3 + 1] = i + 1;
-        M2_indices[i * 3 + 2] = (i + 1) % nSlices + 1;
+        M2_vertices.push_back(cx + radius * cos(i * res));
+        M2_vertices.push_back(cy + height);
+        M2_vertices.push_back(cz + radius * sin(i * res));
     }
 
-    for (int i = 0; i < nSlices; i++)
+    /* ---------- INDICES ---------- */
+
+    int k1 = 0;           // 1st vertex index at base
+    int k2 = nSlices + 1; // 1st vertex index at top
+
+    // M2_indices for the side surface
+    for (int i = 0; i < nSlices; ++i, ++k1, ++k2)
     {
-        M2_indices[(i + nSlices) * 3] = nSlices + 1;
-        M2_indices[(i + nSlices) * 3 + 1] = nSlices + i + 2;
-        M2_indices[(i + nSlices) * 3 + 2] = nSlices + (i + 1) % nSlices + 2;
+        // 2 triangles per sector
+        // k1 => k1+1 => k2
+        M2_indices.push_back(k1);
+        M2_indices.push_back(k1 + 1);
+        M2_indices.push_back(k2);
+
+        // k2 => k1+1 => k2+1
+        M2_indices.push_back(k2);
+        M2_indices.push_back(k1 + 1);
+        M2_indices.push_back(k2 + 1);
     }
 
-    for (int i = 0; i < nSlices * 2; i++)
+    int baseCenterIndex = 0;
+    int topCenterIndex = nSlices + 1;
+
+    // M2_indices for bottom surfaces
+    for (int i = 0, k = baseCenterIndex + 1; i < nSlices; ++i, ++k)
     {
-        M2_indices[2 * 3 * (nSlices + i) + 0] = i + 1;
-        M2_indices[2 * 3 * (nSlices + i) + 1] = (i + 1) % nSlices + 1;
-        M2_indices[2 * 3 * (nSlices + i) + 2] = nSlices + (i + 1) % nSlices + 1;
-        M2_indices[2 * 3 * (nSlices + i) + 3] = nSlices + (i + 1) % nSlices + 1;
-        M2_indices[2 * 3 * (nSlices + i) + 4] = nSlices + (i + 1) % nSlices + 2;
-        M2_indices[2 * 3 * (nSlices + i) + 5] = (i + 1) % nSlices + 1;
+        if (i < nSlices - 1)
+        {
+            M2_indices.push_back(baseCenterIndex);
+            M2_indices.push_back(k + 1);
+            M2_indices.push_back(k);
+        }
+        else // last triangle
+        {
+            M2_indices.push_back(baseCenterIndex);
+            M2_indices.push_back(baseCenterIndex + 1);
+            M2_indices.push_back(k);
+        }
+    }
+
+    // M2_indices for the top surface
+    for (int i = 0, k = topCenterIndex + 1; i < nSlices; ++i, ++k)
+    {
+        if (i < nSlices - 1)
+        {
+            M2_indices.push_back(topCenterIndex);
+            M2_indices.push_back(k);
+            M2_indices.push_back(k + 1);
+        }
+        else // last triangle
+        {
+            M2_indices.push_back(topCenterIndex);
+            M2_indices.push_back(k);
+            M2_indices.push_back(topCenterIndex + 1);
+        }
     }
 }
