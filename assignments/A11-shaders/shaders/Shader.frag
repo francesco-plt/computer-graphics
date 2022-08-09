@@ -26,17 +26,13 @@ layout(set = 0, binding = 1) uniform GlobalUniformBufferObject {
 	float time;
 } gubo;
 
-float rand(in vec2 co){
-    return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
-}
-
-vec3 cosPalette(float t, vec3 a, vec3 b, vec3 c, vec3 d) {
-    return a + b * cos(6.28318 * (c * t + d));
-}
-
-void main() {
-	float m_real = 0.0f, m_img = 0.0f, temp;
+vec4 test_method() {
+	// alt sol, used to be working but it does not anymore wtf
+	float m_real = 0.0f;
+	float m_img = 0.0f;
+	float temp;
 	int i;
+
 	for(i = 0; i < 16; i++) {
 		if(m_real * m_real + m_img * m_img > 4.0) {
 			break;
@@ -45,12 +41,32 @@ void main() {
 		m_img = 2.0 * m_real * m_img + img;
 		m_real = temp;
 	}
-	
-	outColor = vec4(
-		(float(i % 5) + sin(gubo.time*6.28)) / 5.0,	float(i % 10) / 10.0, float(i) / 15.0, 1.0
-	);
 
-	// alt approach
-	// vec3 palette = cosPalette(0.1 ,vec3(0.2,0.7,0.4), vec3(0.6,0.9,0.2), vec3(0.6,0.8,0.7), vec3(0.5,0.1,0.0));
-	// outColor = vec4(palette.x, palette.y, palette.z, 1.0f);
+	vec3 c = vec3((float(i % 5) + sin(gubo.time*6.28)) / 5.0, float(i % 10) / 10.0, float(i) / 15.0);
+	return vec4(c, 1.0);
+}
+
+vec3 palette(float t, vec3 a, vec3 b, vec3 c, vec3 d) {
+    return a + b * cos(6.28318 * (c * t + d));
+}
+
+void main() {
+
+	/*
+	color(t) = a + b * cos[2*pi+(c*t+d)]
+
+	in order to get hue variation the four parameters a, b, c and d must be vectors of three components (red, gree, blue).
+	If you need to ensure the palettes cycle over the 0..1 interval exactly, then you'll need to make c an integer number of halves
+	(0.0, 0.5, 1.0, 1.5, 2.0, ...) and d an integer number of thirds (0.0, 0.33, 0.66, 1.0).
+
+	a					b				c				d
+	0.5, 0.5, 0.5		0.5, 0.5, 0.5	1.0, 1.0, 1.0	0.00, 0.33, 0.66
+	*/
+	vec3 a = vec3(0.5, 0.5, 0.5);
+	vec3 b = vec3(0.5, 0.5, 0.5);
+	vec3 c = vec3(1.0, 1.0, 1.0);
+	vec3 d = vec3(0.00, 0.33, 0.66);
+	float t = gubo.time;
+	outColor = vec4(palette(t, a, b, c, d), 1.0);
+	// outColor = test_method();
 }

@@ -1,24 +1,33 @@
-#include <GLFW/glfw3.h>
+#include "vertex.h"
 
 void createSpring(int nSlices, float steps, float r, float spireDist, int nRounds, float roundsDist)
 {
-    float u, pi = M_PI;
-    float x = 0, y = 0, z = 0;
+    //// M4 : Spring
+    // Replace the code below, that creates a simple octahedron, with the one to create a spring
+    float u = 0;
 
-    M4_vertices.resize(3 * (steps * nSlices));
+    float sCx = 0, sCy = 0, sCz = 0;
+
+    M4_vertices.resize(steps * nSlices);
 
     for (int i = 0; i < steps; i++)
     {
-        float u = (float)i / steps * nRounds * 2.0 * pi;
-        // center of i circle
-        x = spireDist * cos(u);
-        y = (roundsDist * u) / pi;
-        z = spireDist * sin(u);
+        u = (float)i / steps * nRounds * 2.0 * M_PI;
+        sCx = spireDist * cos(u);
+        sCy = (roundsDist * u) / M_PI;
+        sCz = spireDist * sin(u);
         for (int j = 0; j < nSlices; j++)
         {
-            M4_vertices[j * 3 + i * nSlices * 3 + 0] = x + r * cos((float)j / nSlices * 2.0 * pi) * cos(u);
-            M4_vertices[j * 3 + i * nSlices * 3 + 1] = y + r * sin((float)j / nSlices * 2.0 * pi);
-            M4_vertices[j * 3 + i * nSlices * 3 + 2] = z + r * cos((float)j / nSlices * 2.0 * pi) * sin(u);
+            float x = sCx + r * cos((float)j / nSlices * 2.0 * M_PI) * cos(u);
+            float y = sCy + r * sin((float)j / nSlices * 2.0 * M_PI);
+            float z = sCz + r * cos((float)j / nSlices * 2.0 * M_PI) * sin(u);
+
+            float nx = cos((float)j / nSlices * 2.0 * M_PI) * cos(u);
+            float ny = sin((float)j / nSlices * 2.0 * M_PI);
+            float nz = cos((float)j / nSlices * 2.0 * M_PI) * sin(u);
+
+            M4_vertices[j + i * nSlices].pos = glm::vec3(x, y, z);
+            M4_vertices[j + i * nSlices].norm = glm::vec3(nx, ny, nz);
         }
     }
 

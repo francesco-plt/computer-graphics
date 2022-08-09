@@ -13,7 +13,14 @@ test: $(PROJ_NAME)
 	./$(PROJ_NAME)
 
 build:
+	glslc shaders/Shader.frag -o Frag.spv
+	glslc shaders/Shader.vert -o Vert.spv
 	g++ $(CFLAGS) $(INC) -o $(PROJ_NAME) main.cpp $(LDFLAGS)
+	
 
 clean:
 	rm -f $(PROJ_NAME)	
+
+shad:
+	glslc shaders/Shader.frag -o Frag.spv
+	glslc shaders/Shader.vert -o Vert.spv

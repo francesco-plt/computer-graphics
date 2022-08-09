@@ -17,3 +17,10 @@ build:
 
 clean:
 	rm -f $(PROJ_NAME)	
+
+shad:
+	glslc -o shaders/BRDF1Frag.spv shaders/BRDF1Frag.frag
+	glslc -o shaders/BRDF1Vert.spv shaders/BRDF1Vert.vert
+	glslc -o shaders/BRDF2Frag.spv shaders/BRDF2Frag.frag
+	glslc -o shaders/BRDF2Vert.spv shaders/BRDF2Vert.vert
+	
