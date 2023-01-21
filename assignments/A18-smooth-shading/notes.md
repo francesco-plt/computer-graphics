@@ -1,12 +1,6 @@
 # Assignment 18 (Smooth Shading)
 
-As introduced, meshes are polygonal objects with sharp edges that, with special rendering techniques, can appear smooth:
-
-![](assets/meshes.png)
-
-The solution can be computed per-vertex or per-pixel:
-
-![](assets/vertex-vs-pixel.png)
+As introduced, meshes are polygonal objects with sharp edges that, with special rendering techniques, can appear smooth. The solution can be computed per-vertex or per-pixel.
 
 To create smoother images, the rendering equation can be even solved several times per pixel to  avoid the aliasing effect. The two most common smooth shading techniques are:
 
@@ -18,8 +12,6 @@ To create smoother images, the rendering equation can be even solved several tim
 As we have seen in the previous lessons, the approximation  of the rendering equation uses the normal vector direction to  compute the color of a surface. Meshes are composed by triangles and each a triangle has a  single normal vector that is identical in all of its points.
 
 In a curved surface, the normal changes continuously, creating a  different color in every point that makes it appear smooth. The basis of smooth rendering is to “fake” the geometrical  normal vector, and use an artificial one that changes smoothly over the surface.
-
-![](assets/normals.png)
 
 To support fake normal vectors, the encoding of a vertex is  extended to 6 values, which define both the position and the  direction of the normal vector to the surface for each x, y and z direction:
 $$
@@ -153,7 +145,3 @@ fragShaderStageInfo.pName = "main";
 VkPipelineShaderStageCreateInfo shaderStages[] =
 	{vertShaderStageInfo, fragShaderStageInfo};
 ```
-
-## The assignment
-
-Similar to A09, but we'll need to update the values of the normal for each vertex.

@@ -8,11 +8,7 @@
 
 2D textures are applied to 3D objects, using a mapping relation that associates  each point on the surface with a point on the texture. The mapping creates a correspondence between pixels of the texture (called texel) and points of the object.
 
-Points over 2D Textures are  addressed using a Cartesian  coordinate system, whose  axes are called u and v. This set of coordinates are  usually called **UV**, mapping or **texture coordinates**.
-
-![](assets/uv.png)
-
-Note that UV coordinates are assigned only to the vertices of the triangles.
+Points over 2D Textures are  addressed using a Cartesian  coordinate system, whose  axes are called u and v. This set of coordinates are  usually called **UV**, mapping or **texture coordinates**. Note that UV coordinates are assigned only to the vertices of the triangles.
 
 ## Perspective Interpolation
 
@@ -36,17 +32,3 @@ If we call $u_{1}, u_{2}$ and $u_{3}$, the value of a parameter $u$ at the three
 $$
 u_{S}=u\left(\alpha_{1}, \alpha_{2}, \alpha_{3}\right)=\frac{\alpha_{1} \frac{u_{1}}{z_{1}}+\alpha_{2} \frac{u_{2}}{z_{2}}+\alpha_{3} \frac{u_{3}}{z_{3}}}{\frac{\alpha_{1}}{z_{1}}+\frac{\alpha_{2}}{z_{2}}+\frac{\alpha_{3}}{z_{3}}}
 $$
-
-## The assignment
-
-### The cube
-
-![](assets/cube.png)
-
-* Back Face
-  * Bottom left: 0, 0, 0
-  * Bottom right: 1, 0, 0
-  * Top left: 0, 1, 0
-  * Top right: 1, 1, 0
-    * ... and so on
-

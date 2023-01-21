@@ -50,9 +50,7 @@ f = C * max(dot(L, N), 0.0);
 
 Idea: some materials are characterized by a phenomenon called retroreflection: they tend to reflect back in the direction of the light source. They are characterized by very rough surfaces, and they cannot be accurately simulated with the Lambert diffuse reflection model. The Oren-Nayar diffuse reflection model has been devised to more appropriately model such materials.
 
-Typical real life materials that require this special technique are  clay, dirt and some types of cloths:
-
-![](assets/oren.png)
+It is used mostly for real life materials that require this special technique are clay, dirt and some types of cloths.
 
 It requires three vectors:
 
