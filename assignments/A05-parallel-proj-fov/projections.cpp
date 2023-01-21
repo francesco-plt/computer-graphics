@@ -1,7 +1,10 @@
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 
-// Create a matrix for Perspecrtive projection with the given aspect ratio a,
-// and a FovY = 90o
+// matrices for Perspective projection
+// with the given aspect ratio a, and
+// different FovY
+
+// FovY = 90°
 glm::mat4 PO1(float a)
 {
 	// perspective() function computes the perspective projection matrix specifying Fov and aspect ratio
@@ -12,8 +15,7 @@ glm::mat4 PO1(float a)
 	return proj;
 }
 
-// Create a matrix for Perspecrtive projection with the given aspect ratio a,
-// and a FovY = 120o
+// FovY = 120°
 glm::mat4 PO2(float a)
 {
 	glm::mat4 proj = glm::perspective(glm::radians(120.0f), a, 0.1f, 9.9f);
@@ -21,8 +23,7 @@ glm::mat4 PO2(float a)
 	return proj;
 }
 
-// Create a matrix for Perspecrtive projection with the given aspect ratio a,
-// and a FovY = 30o
+// // FovY = 30°
 glm::mat4 PO3(float a)
 {
 	glm::mat4 proj = glm::perspective(glm::radians(30.0f), a, 0.1f, 9.9f);
@@ -30,9 +31,9 @@ glm::mat4 PO3(float a)
 	return proj;
 }
 
-// Create a matrix for Perspecrtive projection, with the given aspect ratio a.
-// Here the perspective should only show the left side of the view
-// with a FovY = 90o. Here r=0, and l, t and b should be computed
+// FovY = 90°.
+// The perspective should only show the left side of the view
+// Here r=0, and l, t and b should be computed
 // to match both the aspect ratio and the FovY
 glm::mat4 PO4(float a)
 {

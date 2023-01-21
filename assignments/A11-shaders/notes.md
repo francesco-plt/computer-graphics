@@ -4,9 +4,8 @@
 stages of the pipeline. There are different types of pipelines, we will focus on **graphic pipelines**, which are meant to provide rendering of 3D meshes, or in other words they help rendering an image from a set of 3D primitives.
 
 ## Shaders
+
 When creating a pipeline, the user has to:
-
-
 
 * Specify parameters to control the fixed functions.
 * Provide shaders for the programmable stages.
@@ -15,14 +14,10 @@ When creating a pipeline, the user has to:
 All shaders have very similar interfaces, and are connected in a 
 common way. They are written mostly in GLSL (openGL Shading Language). We'll work with two types of shaders:
 
-
-
 * `.vert`: vertex shaders
 * `.frag`: fragment shaders
 
 ### How do they work
-
-<img src="assets/Schermata 2022-04-16 alle 15.20.44.png" alt="Schermata 2022-04-16 alle 15.20.44" style="zoom:67%;" />
 
 #### Vertex shaders
 

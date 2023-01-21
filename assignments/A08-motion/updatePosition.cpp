@@ -1,5 +1,6 @@
 #include <glm/gtx/euler_angles.hpp>
-// Create the world matrix for the robot
+
+// World matrix for the robot
 
 // function to create world matrix from assignment 7
 glm::mat4 eulerWM(glm::vec3 pos, glm::vec3 YPR)
@@ -10,8 +11,8 @@ glm::mat4 eulerWM(glm::vec3 pos, glm::vec3 YPR)
 
 glm::mat4 getRobotWorldMatrix(GLFWwindow *window)
 {
-	// just setting deltaT to check how much time has passed
-	// between getRobotWorldMatrix calls
+	// just setting deltaT to check how much
+	// time has passed between calls
 	static auto startTime = std::chrono::high_resolution_clock::now();
 	static float lastTime = 0.0f;
 	auto currentTime = std::chrono::high_resolution_clock::now();

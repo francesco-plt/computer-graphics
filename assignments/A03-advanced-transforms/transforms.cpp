@@ -1,9 +1,12 @@
+
+
 // Rotate 45 degrees around an arbitrary axis passing through (1,0,-1). The x-axis can be aligned to the arbitrary axis after a
 // rotation of 30 degrees around the z-axis, and then -60 degrees around the y-axis.
 glm::mat4 MT1_T = glm::translate(glm::mat4(1), glm::vec3(1.0f, 0.0f, -1.0f));
-glm::mat4 MT1_Rz = glm::rotate(glm::mat4(1), glm::radians(30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 glm::mat4 MT1_Ry = glm::rotate(glm::mat4(1), glm::radians(-60.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+glm::mat4 MT1_Rz = glm::rotate(glm::mat4(1), glm::radians(30.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 glm::mat4 MT1_Rx = glm::rotate(glm::mat4(1), glm::radians(45.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+// undoing everything in reverse order to keep the rotation around the arbitrary axis
 glm::mat4 MT1 = MT1_T * MT1_Ry * MT1_Rz * MT1_Rx * glm::inverse(MT1_Rz) * glm::inverse(MT1_Ry) * glm::inverse(MT1_T);
 
 // Half the size of an object, using as fixed point (5,0,-2)

@@ -1,3 +1,0 @@
-auto nome_funzione = [&](int param1, int param2){
-// codice funzione (puoi accedere anche a variabili esterne alla funzione)
-};
