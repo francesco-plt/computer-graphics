@@ -5,9 +5,7 @@ Indexed primitives are defined by two arrays: the **vertex array**, contains the
 
 The vertex array is something like: `std::vector<float> vertices`. Each `float` element represent a coordinate (either x, y or z) of a point in space. Then we'll use the index array to draw triangles by referencing triplets of elements (one triplet makes up one point in the 3D space) belonging to the vertex array.
 
-### Cube Example
-
-![Cube Example](assets/cube-example.png)
+## Cube
 
 ```c++
 std::vector<float> vertices = {
