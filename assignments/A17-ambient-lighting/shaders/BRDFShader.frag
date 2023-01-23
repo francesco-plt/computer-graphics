@@ -15,13 +15,15 @@ layout(binding = 2) uniform GlobalUniformBufferObject {
 	vec3 lightColor3;
 
 	// Ambient light parameters
-	vec3 AmbColor;	// also Bottom color for Hemispheric light,
-					//      Constant term for Spherical Harmonics light
-	vec3 TopColor;	// also DyColor for Spherical Harmonics light
+	vec3 AmbColor;
+	vec3 TopColor;
 	vec3 DzColor;
 	vec3 DxColor;
+	// + Bottom color for Hemispheric light
+	// + Constant term for Spherical Harmonics light
+	// + DyColor for Spherical Harmonics light
 	
-	// Other parameters (not relevant for the exercise)
+	// Other parameters (not relevant for the exercise solution)
 	vec3 eyePos;
 	vec4 selector;
 } gubo;
@@ -64,12 +66,11 @@ vec3 Case1_Color(vec3 N, vec3 V, vec3 Cd, vec3 Ca, float sigma) {
 	float G = max(dot(vi, vr), 0.0);
 	vec3 L1 = C * clamp(dot(L, N), 0.0, 1.0);
 	vec3 oren_nayar_color = L1 * (A + B * G * sin(alpha) * tan(beta));
-	// reflection_model = model_color * main_color
+	// aka: reflection_model = model_color * main_color
 	vec3 reflect_model = oren_nayar_color * Cd;
 
 	// Ambient reflection model computation
-	// ambient_model =
-	//	basic ambient color. * ambient color of the surface
+	// aka: ambient_model = basic ambient color. * ambient color of the surface
 	vec3 amb_model = gubo.AmbColor * Ca;
 
 	return reflect_model + amb_model;
@@ -115,7 +116,7 @@ vec3 Case3_Color(vec3 N, vec3 V, vec3 Cs, vec3 Ca, float gamma)  {
 	// float gamma : Blinn exponent
 
 	// Specular reflection model (Blinn) computation
-	// we have one blinn__color component for each light
+	// we have one blinn_color component for each light
 	vec3 L0 =  gubo.lightDir0;
 	vec3 L1 =  gubo.lightDir1;
 	vec3 L2 =  gubo.lightDir2;
@@ -139,12 +140,7 @@ vec3 Case3_Color(vec3 N, vec3 V, vec3 Cs, vec3 Ca, float gamma)  {
 	return reflect_model + amb_model;
 }
 
-
-
 /**** To here *****/
-
-
-
 
 void main() {
 	vec3 Norm = normalize(fragNorm);

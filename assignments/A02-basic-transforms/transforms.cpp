@@ -46,7 +46,7 @@ const float MT6[] = {
 
 // Make a shear along the Y axis, with a factor of 1 along the x axis
 const float MT7[] = {
-	1.0, 1.0, 0.0, 0.0,
+	1.0, 1.0, 0.0, 0.0, // yx = 1.0
 	0.0, 1.0, 0.0, 0.0,
 	0.0, 0.0, 1.0, 0.0,
 	0.0, 0.0, 0.0, 1.0};

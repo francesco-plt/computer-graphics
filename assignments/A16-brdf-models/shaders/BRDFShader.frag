@@ -98,11 +98,7 @@ vec3 Toon_Specular_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, float thr)  {
 	}
 }
 
-
 /**** To here *****/
-
-
-
 
 vec3 BRDF_D(vec3 L, vec3 N, vec3 V, vec3 C) {
 	return gubo.selector.x * Lambert_Diffuse_BRDF(L, N, V, C) +

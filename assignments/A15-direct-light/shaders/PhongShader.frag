@@ -49,7 +49,11 @@ layout(binding = 2) uniform GlobalUniformBufferObject {
 		0 for no decay, 1 for linear decay and 2 for quadratic fading.
 */
 
-// directional light
+/*
+	direct light
+	it is used to model distant sources, like the sunlight.
+	Rays are parallel to each other and constant in color and intensity.
+*/
 
 // direction
 vec3 direct_light_dir(vec3 pos) {
@@ -60,7 +64,13 @@ vec3 direct_light_color(vec3 pos) {
 	return gubo.lightColor;
 }
 
-// point light
+/*
+	point light
+	point light source that emit light from fixed point in
+	the space and do not have a direction. To reproduce the
+	physical properties of light sources, point lights are
+	characterized by a decay factor.
+*/
 
 // direction
 vec3 point_light_dir(vec3 pos) {
@@ -68,13 +78,10 @@ vec3 point_light_dir(vec3 pos) {
 	// note: light direction should be normalized to make it an unitary vector
 	return normalize(gubo.lightPos - pos);
 }
-/*	
-	color
-	
-	we need to take into account the decay factor:
-	the intensity reduces at a rate that is proportional
-	to the inverse of the square of the distance.
-*/
+
+// we need to take into account the decay factor:
+// the intensity reduces at a rate that is proportional
+// to the inverse of the square of the distance.
 vec3 point_light_color(vec3 pos) {
 	float g = gubo.coneInOutDecayExp.z;		// basic distance
 	vec3 p = gubo.lightPos;					// position of the light
@@ -109,9 +116,10 @@ vec3 spot_light_color(vec3 pos) {
 	float dp = length(p - x);				// distance between the light and the object
 	vec3 L = pow(g/dp, dc- b) * l;
 
-	// this is new: for the spot light, we need to take into account the angle of the cone
-	// we use the cosine of the half-angle of the cone
-	// f = cone dimming effect = clamp(cosine of light direction vector and the direction of the spot)
+	// this is new: for the spot light, we need to take into account the
+	// angle of the cone we use the cosine of the half-angle of the cone
+	// f = cone dimming effect = clamp(cosine of light direction vector
+	// and the direction of the spot)
 	float cout = gubo.coneInOutDecayExp.x;
 	float cin = gubo.coneInOutDecayExp.y;
 	float alpha = dot(normalize(gubo.lightDir), normalize(gubo.lightPos - pos));
@@ -120,10 +128,6 @@ vec3 spot_light_color(vec3 pos) {
 }
 
 /**** To here *****/
-
-
-
-
 
 void main() {
 	vec3 Norm = normalize(fragNorm);

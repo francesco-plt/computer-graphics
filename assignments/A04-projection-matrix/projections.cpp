@@ -1,31 +1,30 @@
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 
+// othogonal: perpendicular to plane (xy, yz, zx)
+// axonometric: see all faces of the object
 glm::mat4 vk_ortho(float a)
 {
 	// w, n, f are given by exercise text
 	float w = 2;
-	float l = -w;
-	float r = w;
-	float b = -w / a;
-	float t = w / a;
 	float n = -4;
 	float f = 12;
 
-	// Orthogonal Projections are projections where the plane is
-	// either the xy, yz or zx-plane, and the projection rays are
-	// perpendicular to it.
+	float l = -w;
+	float r = w;
+	float t = w / a;
+	float b = -w / a;
 
-	// ortho() computes the orthographic projection matrix specifying the boundaries
-	// plus some modifications to match vulkan conventions (y-axis flip)
+	// orthographic projection matrix with boundaries
+	// y-axis flip to match vulkan conventions
+	// input: dimensions of the view frustum
+	// output: orthographic projection matrix
 	return glm::scale(glm::mat4(1.0), glm::vec3(1, -1, 1)) * glm::ortho(l, r, b, t, n, f);
 }
-
-// In isometric projections the three axes
-// are angled at 120° one from the other
 
 // Create a matrix for Isometric projection with the given aspect ration a
 glm::mat4 PO1(float a)
 {
+	// axes angled at 120° one from the other
 	glm::mat4 rot1 = glm::rotate(glm::mat4(1), glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 	glm::mat4 rot2 = glm::rotate(glm::mat4(1), glm::radians(35.26f), glm::vec3(1.0f, 0.0f, 0.0f));
 	return vk_ortho(a) * rot2 * rot1;
@@ -61,10 +60,12 @@ glm::mat4 PO3(float a)
 // with the given aspect ration a
 glm::mat4 PO4(float a)
 {
+	float alpha = glm::radians(45.0f);
+	float rho = 0.5f;
 	glm::mat4 shear = glm::mat4(
 		1, 0, 0, 0,
 		0, 1, 0, 0,
-		-0.5 * cos(45.0f), -0.5 * sin(45.0f), 1, 0,
+		-rho * cos(alpha), -rho * sin(alpha), 1, 0,
 		0, 0, 0, 1);
 	return vk_ortho(a) * shear;
 }

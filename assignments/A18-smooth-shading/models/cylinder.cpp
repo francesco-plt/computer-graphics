@@ -42,6 +42,8 @@ void createCylinder(int nSlices, float radius, float height)
         M2_vertices[baseIndex + i].norm = glm::vec3(0, -1, 0);
     }
 
+    // sides
+
     baseIndex = 2 * nSlices + 2;
 
     for (int i = 0; i < nSlices; i++)
@@ -72,7 +74,6 @@ void createCylinder(int nSlices, float radius, float height)
         M2_vertices[baseIndex + i].norm = glm::vec3(nx, 0, nz);
     }
 
-    // Resizes the indices array. Repalce the values with the correct number of
     // indices (3 * number of triangles)
     M2_indices.resize(3 * (nSlices * 4));
 

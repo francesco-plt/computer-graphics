@@ -17,37 +17,16 @@
 
 #version 450
 
-layout(location = 0) in float real;
-layout(location = 1) in float img;
-
 layout(location = 0) out vec4 outColor;
 
 layout(set = 0, binding = 1) uniform GlobalUniformBufferObject {
 	float time;
 } gubo;
 
-vec4 test_method() {
-	// alt sol, used to be working but it does not anymore wtf
-	float m_real = 0.0f;
-	float m_img = 0.0f;
-	float temp;
-	int i;
-
-	for(i = 0; i < 16; i++) {
-		if(m_real * m_real + m_img * m_img > 4.0) {
-			break;
-		}
-		temp = m_real * m_real - m_img * m_img + real;
-		m_img = 2.0 * m_real * m_img + img;
-		m_real = temp;
-	}
-
-	vec3 c = vec3((float(i % 5) + sin(gubo.time*6.28)) / 5.0, float(i % 10) / 10.0, float(i) / 15.0);
-	return vec4(c, 1.0);
-}
-
+// rotating palette basing on time t
 vec3 palette(float t, vec3 a, vec3 b, vec3 c, vec3 d) {
-    return a + b * cos(6.28318 * (c * t + d));
+	float p = 6.28318;
+    return a + b * cos(p * (c * t + d));
 }
 
 void main() {
@@ -62,11 +41,11 @@ void main() {
 	a					b				c				d
 	0.5, 0.5, 0.5		0.5, 0.5, 0.5	1.0, 1.0, 1.0	0.00, 0.33, 0.66
 	*/
+
 	vec3 a = vec3(0.5, 0.5, 0.5);
 	vec3 b = vec3(0.5, 0.5, 0.5);
 	vec3 c = vec3(1.0, 1.0, 1.0);
 	vec3 d = vec3(0.00, 0.33, 0.66);
 	float t = gubo.time;
 	outColor = vec4(palette(t, a, b, c, d), 1.0);
-	// outColor = test_method();
 }

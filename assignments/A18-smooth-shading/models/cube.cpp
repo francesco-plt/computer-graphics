@@ -3,7 +3,7 @@
 void createCube()
 {
 
-    //// M1 : Cube
+    // M1 : Cube
     M1_vertices.resize(8 * 3);
 
     // first vertex of M1
@@ -22,7 +22,6 @@ void createCube()
     M1_vertices[3].pos = glm::vec3(-1.0, 1.0, -1.0);
     M1_vertices[3].norm = glm::vec3(0.0, 0.0, -1.0);
 
-    //---------------------------------
     M1_vertices[4].pos = glm::vec3(1.0, -1.0, -1.0);
     M1_vertices[4].norm = glm::vec3(1.0, 0.0, 0.0);
 
@@ -35,7 +34,6 @@ void createCube()
     M1_vertices[7].pos = glm::vec3(1.0, 1.0, -1.0);
     M1_vertices[7].norm = glm::vec3(1.0, 0.0, 0.0);
 
-    //---------------------------------
     M1_vertices[8].pos = glm::vec3(1.0, -1.0, 1.0);
     M1_vertices[8].norm = glm::vec3(0.0, 0.0, 1.0);
 
@@ -48,7 +46,6 @@ void createCube()
     M1_vertices[11].pos = glm::vec3(1.0, 1.0, 1.0);
     M1_vertices[11].norm = glm::vec3(0.0, 0.0, 1.0);
 
-    //---------------------------------
     M1_vertices[12].pos = glm::vec3(-1.0, -1.0, 1.0);
     M1_vertices[12].norm = glm::vec3(-1.0, 0.0, 0.0);
 
@@ -61,7 +58,6 @@ void createCube()
     M1_vertices[15].pos = glm::vec3(-1.0, 1.0, 1.0);
     M1_vertices[15].norm = glm::vec3(-1.0, 0.0, 0.0);
 
-    //---------------------------------
     M1_vertices[16].pos = glm::vec3(-1.0, 1.0, 1.0);
     M1_vertices[16].norm = glm::vec3(0.0, 1.0, 0.0);
 
@@ -74,7 +70,6 @@ void createCube()
     M1_vertices[19].pos = glm::vec3(-1.0, 1.0, -1.0);
     M1_vertices[19].norm = glm::vec3(0.0, 1.0, 0.0);
 
-    //---------------------------------
     M1_vertices[20].pos = glm::vec3(-1.0, -1.0, 1.0);
     M1_vertices[20].norm = glm::vec3(0.0, -1.0, 0.0);
 
@@ -87,7 +82,6 @@ void createCube()
     M1_vertices[23].pos = glm::vec3(-1.0, -1.0, -1.0);
     M1_vertices[23].norm = glm::vec3(0.0, -1.0, 0.0);
 
-    // Resizes the indices array. Repalce the values with the correct number of
     // indices (3 * number of triangles)
     M1_indices.resize(3 * 12);
 
@@ -101,7 +95,6 @@ void createCube()
     M1_indices[4] = 3;
     M1_indices[5] = 0;
 
-    // -------------------
     M1_indices[6] = 4;
     M1_indices[7] = 5;
     M1_indices[8] = 6;
@@ -110,7 +103,6 @@ void createCube()
     M1_indices[10] = 7;
     M1_indices[11] = 4;
 
-    // -------------------
     M1_indices[12] = 8;
     M1_indices[13] = 9;
     M1_indices[14] = 11;
@@ -119,7 +111,6 @@ void createCube()
     M1_indices[16] = 10;
     M1_indices[17] = 9;
 
-    // -------------------
     M1_indices[18] = 12;
     M1_indices[19] = 13;
     M1_indices[20] = 14;
@@ -128,7 +119,6 @@ void createCube()
     M1_indices[22] = 15;
     M1_indices[23] = 12;
 
-    // -------------------
     M1_indices[24] = 16;
     M1_indices[25] = 17;
     M1_indices[26] = 18;
@@ -137,7 +127,6 @@ void createCube()
     M1_indices[28] = 19;
     M1_indices[29] = 16;
 
-    // -------------------
     M1_indices[30] = 20;
     M1_indices[31] = 21;
     M1_indices[32] = 22;
