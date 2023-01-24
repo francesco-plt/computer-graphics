@@ -518,6 +518,11 @@ public:
         }
     }
 
+    /*
+    swapchain: collection of framebuffers
+    it manages the buffers that hold the
+    images that are displayed on the screen
+    */
     void createSwapChain()
     {
         SwapChainSupportDetails swapChainSupport = querySwapChainSupport(physicalDevice);

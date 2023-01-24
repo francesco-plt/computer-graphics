@@ -24,6 +24,8 @@ void createSphere(int hCount, int vCount, float r)
 
         for (int j = 0; j <= hCount; j++)
         {
+            // phi: azimuthal angle, is the angle between the positive
+            // x-axis and the projection of the point onto the xy-plane
             phi = j * hRectangles;
 
             x = xy * cos(phi);

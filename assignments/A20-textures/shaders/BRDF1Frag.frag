@@ -41,9 +41,11 @@ vec3 spot_light_dir(vec3 pos) {
 vec3 spot_light_color(vec3 pos) {
 	// Spot light color
 	vec3 pMinusx = gubo.lightPos - pos;
-	float lenpMinusx =length(pMinusx);
-	float bod= gubo.lightParams.w/lenpMinusx;
-	float decay =pow(bod,gubo.lightParams.z);
+	float lenpMinusx = length(pMinusx);
+	float bod = gubo.lightParams.w/lenpMinusx;
+	float decay = pow(bod,gubo.lightParams.z);
+	// the cosine of between the light direction vector lx
+	// and the direction of the spot computed by dot product
 	float dotProd = dot(normalize(pMinusx),gubo.lightDir);
 	float clampPart = clamp((dotProd-gubo.lightParams.y)/(gubo.lightParams.x-gubo.lightParams.y),0.0, 1.0);
 	return gubo.lightColor*dot(decay,clampPart);
@@ -57,7 +59,7 @@ vec3 Lambert_Diffuse_BRDF(vec3 L, vec3 N, vec3 V, vec3 C) {
 	// vec3 V : view direction
 	// vec3 C : main color (diffuse color, or specular color)
 
-	return C *clamp(dot(L,N),0.0,1.0);
+	return C * clamp(dot(L,N), 0.0, 1.0);
 }
 
 vec3 Phong_Specular_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, float gamma)  {
@@ -65,8 +67,8 @@ vec3 Phong_Specular_BRDF(vec3 L, vec3 N, vec3 V, vec3 C, float gamma)  {
 	// additional parameter:
 	// float gamma : exponent of the cosine term
 	vec3 r = -reflect(L,N); // L-2*N*DOT
-	float cosGammaAlpha = pow(clamp(dot(V,r),0.0,1.0),gamma);
-	return C*cosGammaAlpha; //Todo green
+	float cosGammaAlpha = pow(clamp(dot(V,r), 0.0, 1.0), gamma);
+	return C * cosGammaAlpha;
 }
 
 
@@ -78,14 +80,15 @@ void main() {
 
 	vec3 EyeDir = normalize(gubo.eyePos - fragPos);
 
-	vec3 lD = spot_light_dir(fragPos);	// calculate vectors light model
+	// vectors light model
+	vec3 lD = spot_light_dir(fragPos);
 	vec3 lC = spot_light_color(fragPos);
 
-	vec3 diffuseColor = texture(diffuseColorSamplers, fragUV).rgb;	// extract from sampler diffuse color
-	vec4 texel = texture(specColorPowerSampler, fragUV);	// extract from sampler specular color and power
+	vec3 diffuseColor = texture(diffuseColorSamplers, fragUV).rgb;	// diffuse color from sampler
+	vec4 texel = texture(specColorPowerSampler, fragUV);	// specular color and power from sampler 
 
 	vec3 lambertDiffuse = Lambert_Diffuse_BRDF(lD, Norm, EyeDir, diffuseColor) * lC;
-	vec3 phongSpecular = Phong_Specular_BRDF(lD, Norm, EyeDir, texel.rgb,200.0f * texel.a) * lC;
+	vec3 phongSpecular = Phong_Specular_BRDF(lD, Norm, EyeDir, texel.rgb, 200.0f * texel.a) * lC;
 
 	outColor = vec4(lambertDiffuse + phongSpecular, 1.0f);	
 

@@ -48,9 +48,9 @@ f = C * max(dot(L, N), 0.0);
 
 ###  Oren-Nayar
 
-Idea: some materials are characterized by a phenomenon called retroreflection: they tend to reflect back in the direction of the light source. They are characterized by very rough surfaces, and they cannot be accurately simulated with the Lambert diffuse reflection model. The Oren-Nayar diffuse reflection model has been devised to more appropriately model such materials.
+Idea: some materials are characterized by a phenomenon called retroreflection: they tend to reflect back in the direction of the light source. They are characterized by very rough surfaces, and they cannot be accurately simulated with the Lambert diffuse reflection model. It also takes into account the roughness of the surface, the angle of incidence of the light, and the angle of the observer.
 
-It is used mostly for real life materials that require this special technique are clay, dirt and some types of cloths.
+The Oren-Nayar diffuse reflection model has been devised to more appropriately model such materials. It is used mostly for real life materials that require this special technique are clay, dirt and some types of cloths.
 
 It requires three vectors:
 
